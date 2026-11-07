@@ -1,0 +1,127 @@
+# Eastern front example mod folder layout. NOTE: Nothing into an assets folder, as that is immediate guaranteed asset replacement.
+# This is a more targeted replacement with potential for config, so I figured I'd seperate it out in case of design for swapping faction variants and such via settings.
+
+RedArmy/
+  mod.json
+  faction.toml            the data file
+  hooks.lua               optional, for anything the schema can't express
+  units/base/idle.png     one folder per unit variant, one PNG per frame
+  units/base/reload1.png ... reload10.png
+  weapons/mosin_top.png   top-down sprite
+  weapons/mosin_side.png  squad UI sprite
+  weapons/mosin1.wav ...  fire sound pool
+  vehicles/t34/body.png, turret.png, husk.png, debris1.png ...
+  voices/contact1.wav ... vanilla voice line names
+  names/first.txt, last.txt
+
+------------------------------------------------------------------------------------------------------------
+
+#:schema ../../faction.schema.json
+# Example faction: the Red Army takes over the Allied side.
+# Every section is optional except the header. Anything left out stays vanilla.
+
+schema = 1
+id = "red_army"
+name = "Red Army"
+replaces = "allied"
+side_name = "Soviet"
+description = "Eastern Front. Soviet riflemen, Soviet small arms and T-34s replace the Americans."
+
+# ---------------------------------------------------------------- unit art
+# One PNG per frame, named by frame: idle.png, aim.png, reload1.png ... reload10.png
+[units.base]
+folder = "units/base"
+
+[units.sarge]
+folder = "units/sarge"
+copy_from = "base"          # any frame the sergeant lacks uses the base rifleman frame
+
+[units.para]
+folder = "units/guards"     # vanilla paratrooper slot becomes Guards infantry
+copy_from = "base"
+
+# ---------------------------------------------------------------- weapons
+# Reskin: keeps the vanilla tag, so every vanilla check for "m1" still works.
+[[weapons]]
+reskin = "m1"
+name = "Mosin M1891/30"
+description = "Bolt-action service rifle. Long range, slow to cycle."
+top_sprite = "weapons/mosin_top.png"
+side_sprite = "weapons/mosin_side.png"
+sound = "weapons/mosin"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 480, damage = 110, rof = 10 }
+
+[[weapons]]
+reskin = "bar"
+name = "DP-27"
+description = "Pan-fed light machine gun."
+top_sprite = "weapons/dp27_top.png"
+side_sprite = "weapons/dp27_side.png"
+sound = "weapons/dp27"
+stats = { ammo = 47, maxAmmo = 47 }
+
+# New weapon: its own tag, stats copied from a vanilla weapon first.
+# Recommend using reskin where possible, as the swap function below will likely have to be implemented so that it replaces many vanilla tags in a not super compatible way.
+[[weapons]]
+tag = "pps43"
+based_on = "m3"
+name = "PPS-43"
+description = "Stamped-steel submachine gun, built in besieged Leningrad."
+top_sprite = "weapons/pps43_top.png"
+side_sprite = "weapons/pps43_side.png"
+sound = "weapons/pps43"
+stats = { ammo = 35, maxAmmo = 35 }
+loot_side = "allied"
+
+# Advanced: hand out the PPSh-41 wherever vanilla hands out a Thompson.
+# The validator will warn how many vanilla checks look for "tommy".
+[spawn_swap]
+tommy = "ppsh41"
+
+# ---------------------------------------------------------------- classes
+[classes.rifle]
+name = "Rifleman"
+description = "Strelok. Medium to long range with the Mosin."
+start_weapon = "m1"                      # the reskinned Mosin
+unlocks = ["svt40", "ppsh41", "pps43"]   # upgrades with new weapons
+
+[classes.gunner]
+name = "Machine Gunner"
+start_weapon = "bar"                     # the reskinned DP-27
+unlocks = ["bren", "m1919", "mg34"]      # upgrades with reskinned weapons
+bonus = { speed = -10, detect_range = 1.2 }
+
+[classes.comms]
+name = "Radio Operator"
+skills = [
+  "Smoke, Calls a smoke screen",
+  "Katyusha, Calls a rocket barrage",
+  "Il-2 strike, Calls a ground attack run",
+]
+
+# ---------------------------------------------------------------- names, voices, text
+# Inline lists in the file for names, or one name per line with first_file/last_file maybe, todo: decide on name file formatting
+[names]
+first_file = "names/first.txt"
+last_file = "names/last.txt"
+
+[voices]
+folder = "voices"        # contact1.wav, alliedHurt1.wav, pinned1.wav ...
+fill_missing = true
+map = { hurt = "alliedHurt" }   # lets the modder ship hurt1.wav instead of alliedHurt1.wav
+
+[text]
+mouseOverLightSpec = "Scout Infantry, fast movers with medium range capability"
+
+# ---------------------------------------------------------------- vehicles (new vehicle functionality looks like it will be much more difficult than new soldiers. Will look into it, just reskins for now)
+[[vehicles]]
+reskin = "sherman"
+name = "T-34/76"
+body = "vehicles/t34/body.png"
+turret = "vehicles/t34/turret.png"
+husk = "vehicles/t34/husk.png"
+debris = "vehicles/t34/debris"
+
+# ---------------------------------------------------------------- optional code
+# [hooks]
+# lua = "hooks.lua"
