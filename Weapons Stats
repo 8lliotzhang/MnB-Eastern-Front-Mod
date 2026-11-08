@@ -12,7 +12,7 @@ elseif(tag == "mosin") then
     weapon.bulk = 12
     weapon.rof = 10
     weapon.rofTime = 99
-    weapon.sound = "springfieldSound”
+    weapon.sound = "springfieldSound"
     weapon.jam = 3
     weapon.magSprite = "genericMag"
     weapon.rgCapable = 0
@@ -54,7 +54,7 @@ elseif(tag == "mosin44") then
 
 Berdan II Rifle
 elseif(tag == "berdan") then
-- Rare, obsolete single-shot black powder rifle that may be used by partizans
+-- Rare, obsolete single-shot black powder rifle that may be used by partizans
     weapon.action = "bolt"
     weapon.ammo = 1
     weapon.maxAmmo = 1
@@ -100,7 +100,7 @@ elseif(tag == "svt38") then
     weapon.recoil = 15
     weapon.bulk = 9.0
     weapon.rof = 4
-    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.rofTime = 99 -- irrelevant for a semi
     weapon.sound = "svt40Sound"
     weapon.jam = 14
     weapon.magSprite = "genericMag" -- stripper clip fed
@@ -135,7 +135,7 @@ elseif(tag == "avs36") then
     weapon.action = "auto"
     weapon.ammo = 15
     weapon.maxAmmo = 15
-    weapon.range = 350 -- shorter barrel than AVT
+    weapon.range = 350 -- shorter range than AVT
     weapon.damage = 105
     weapon.recoil = 10
     weapon.bulk = 10
@@ -182,7 +182,7 @@ elseif(tag == "ppd") then
      weapon.rofTime = 0.075 -- nominal 800 rounds per minute
      weapon.sound = "stenSound" -- placeholder
      weapon.jam = 9 -- 9/1000 per check
-     weapon.magSprite = "m1CarbineMag”-- box-magazine placeholder
+     weapon.magSprite = "m1CarbineMag"-- box-magazine placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
@@ -232,7 +232,7 @@ elseif(tag == "ppsh41") then
      -- PPSh with the iconic drum. This can use vanilla PPSh assets but with stat changes
      weapon.action = "auto"
      weapon.ammo = 65
-     weapon.maxAmmo = 35
+     weapon.maxAmmo = 65
      weapon.range = 265
      weapon.damage = 70
      weapon.recoil = 6
@@ -352,7 +352,7 @@ elseif(tag == "dt") then
      weapon.action = "auto"
      weapon.ammo = 63
      weapon.maxAmmo = 63
-     weapon.range = 350
+     weapon.range = 375
      weapon.damage = 95
      weapon.recoil = 11
      weapon.bulk = 18
@@ -386,23 +386,6 @@ elseif(tag == "mosinSelected") then
     weapon.rofTime = 99 -- irrelevant for a bolt
     weapon.sound = "springfieldSound"
     weapon.jam = 1
-    weapon.magSprite = "genericMag"
-    weapon.rgCapable = 0
-    weapon.jammed = 0
-
-elseif(tag == "mosinSelected") then
-    -- Selected iron-sight M91/30 for the sniper's starting weapon
-    weapon.action = "bolt"
-    weapon.ammo = 5
-    weapon.maxAmmo = 5
-    weapon.range = 500
-    weapon.damage = 105
-    weapon.recoil = 15
-    weapon.bulk = 12
-    weapon.rof = 10
-    weapon.rofTime = 99 -- irrelevant for a bolt
-    weapon.sound = "springfieldSound"
-    weapon.jam = 1 -- gameplay reliability bonus
     weapon.magSprite = "genericMag"
     weapon.rgCapable = 0
     weapon.jammed = 0
@@ -533,7 +516,7 @@ elseif(tag == "tozB") then
 
 AS-44
 elseif(tag == "as44") then
-    -- Experimental assault rifle, longer ranged than StG44 but higher bulk and recoil
+    -- Experimental Sudayev assault rifle
     weapon.action = "auto"
     weapon.ammo = 30
     weapon.maxAmmo = 30
@@ -593,7 +576,7 @@ Weapon Text
 
 weaponText_mosin = "Mosin M91/30, the standard-issue rifle of the Red Army. Excellent range and damage, but heavy and slow to fire."
 weaponText_mosin38 = "Mosin M38 carbine, a shorter and lighter version of the M91/30."
-weaponText_mosin44 = "Mosin M44 carbine, slightly heavier than Mosin M38 due to the integrated folding bayonet.”
+weaponText_mosin44 = "Mosin M44 carbine, slightly heavier than Mosin M38 due to the integrated folding bayonet."
 weaponText_berdan = "Berdan II, an obsolete single-shot rifle found among Partizans. Fires a powerful black-powder cartridge, but requires reloading after every shot."
 weaponText_mosinBramit = "Mosin M91/30 fitted with a Bramit suppressor. Reduced-velocity ammunition softens recoil, at the cost of range and damage."
 weaponText_svt38 = "SVT-38, early Soviet semi-automatic rifle. Powerful at medium range, but suffers reliability issues and has an unwieldy centre of mass."
@@ -603,8 +586,8 @@ weaponText_avt40 = "AVT-40, full-auto SVT-40 with a rare 20-round magazine. Grea
 weaponText_ppd = "PPD, early Soviet submachine gun with a 25-round box magazine. Frequent reloads due to high rate of fire and relatively small magazine capacity."
 weaponText_pps = "PPS, mass-produced lightweight submachine gun with 35-round magazine. Easy to handle and reliable, with a moderate firing rate."
 weaponText_ppshBox = "PPSh with a 35-round box magazine. Rapid fire and good close-range damage, with less bulk and better reliability than the drum version."
-weaponText_ppsh = "PPSh with its iconic drum. Sustained close-range fire, at the cost of greater bulk and more frequent stoppages."
-weaponText_ppshObrez = "PPSh Obrez, used by partisans in concealed carry. Sacrifices range and damage for extremely low bulk.”
+weaponText_ppsh41 = "PPSh with its iconic drum. Sustained close-range fire, at the cost of greater bulk and more frequent stoppages."
+weaponText_ppshObrez = "PPSh Obrez, used by partisans in concealed carry. Sacrifices range and damage for extremely low bulk."
 weaponText_mosinBramit = "Mosin M91/30 fitted with a Bramit suppressor. Reduced-velocity ammunition softens recoil, at the cost of range and damage."
 weaponText_ppdBramit = "PPD fitted with a Bramit suppressor and a 25-round box magazine. Fast, low-recoil fire at close range, but limited capacity and reduced damage."
 weaponText_ppdBramitDrum = "PPD fitted with a Bramit suppressor and a drum. Ample ammunition for silent close-range fire, but bulkier and more prone to stoppages due to drum feed."
@@ -612,12 +595,12 @@ weaponText_dp = "DP, Degtyarev light machine gun fed by a distinctive 47-round p
 weaponText_dpm = "DPM, Degtyarev light machine gun improved with a redesigned recoil spring arrangement for greater reliability and a pistol grip for better handling."
 weaponText_dt = "DT, compact Degtyarev tank machine gun adapted for infantry use. A 63-round pan provides extended fire, while the retractable stock and pistol grip improve handling."
 weaponText_mosinSelected = "A carefully selected and maintained Mosin M91/30 issued to a marksman. Excellent range, powerful shots, and dependable operation."
-weaponText_scopedMosin = "Scoped M91/30, fitted with a 3.5x PU telescopic sight. Excellent range and damage, but heavy and slow to handle."
+weaponText_scopedMosinPU = "Scoped M91/30, fitted with a 3.5x PU telescopic sight. Excellent range and damage, but heavy and slow to handle."
 weaponText_scopedSvt40 = "Scoped SVT-40, fitted with a 3.5x PU telescopic sight. Allows rapid follow-up shots, trading some long-range precision for greater firepower."
 weaponText_scopedMosinPE = "Mosin M91/30, fitted with the more delicate 4x PE telescopic sight. Outstanding range and damage, but heavy to handle and limited to five rounds."
 weaponText_ptrd = "PTRD, single-shot 14.5mm anti-tank rifle. Excellent range and damage, but extremely cumbersome and requires reloading after every shot."
 weaponText_ptrs = "PTRS, semi-automatic 14.5mm anti-tank rifle with a five-round magazine. Powerful shots and rapid follow-up fire, but even heavier than the PTRD."
-weaponText_tozB = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little wonder and capable of a quick second shot.”
+weaponText_tozB = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little wonder and capable of a quick second shot."
 weaponText_as44 = "AS-44, prototype 7.62x39mm Sudayev assault rifle with a 30-round magazine. Good range and steady automatic fire, but heavy and slow to handle."
 weaponText_rd44 = "RD-44, prototype 7.62x39mm Degtyarev machine gun. Very good payload (100), with manageable recoil and reduced range and damage."
 weaponText_rp46 = "Degtyarev DP with experimental belt-feed mechanism. Excellent payload (250-round belt), but cumbersome and prone to feed stoppages."
