@@ -157,3 +157,108 @@ elseif(tag == "avt40") then
 
 weaponText_avt = “”
 
+PPD
+elseif(tag == "ppd") then
+     -- PPD with 25-round box magazine, replaces Sten
+     weapon.action = "auto"
+     weapon.ammo = 25
+     weapon.maxAmmo = 25
+     weapon.range = 225
+     weapon.damage = 75
+     weapon.recoil = 7
+     weapon.bulk = 8
+     weapon.rof = 6
+     weapon.rofTime = 0.075 -- nominal 800 rounds per minute
+     weapon.sound = "stenSound" -- placeholder
+     weapon.jam = 9 -- 9/1000 per check
+     weapon.magSprite = "m1CarbineMag”-- box-magazine placeholder
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "smg"
+
+weaponText_ppd = “”
+
+PPS
+elseif(tag == "pps") then
+     -- Lightweight stamped-steel SMG with 35-round box magazine
+     weapon.action = "auto"
+     weapon.ammo = 35
+     weapon.maxAmmo = 35
+     weapon.range = 225
+     weapon.damage = 75
+     weapon.recoil = 7
+     weapon.bulk = 6
+     weapon.rof = 6
+     weapon.rofTime = 0.10 -- nominal 600 rounds per minute
+     weapon.sound = "ppshSound" -- placeholder
+     weapon.jam = 5 -- 5/1000 per check
+     weapon.magSprite = "brenMag" -- placeholder
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "smg"
+
+weaponText_pps = “”
+
+PPSh (box)
+elseif(tag == "ppshBox") then
+     -- PPSh with 35-round box magazine
+     weapon.action = "auto"
+     weapon.ammo = 35
+     weapon.maxAmmo = 35
+     weapon.range = 225
+     weapon.damage = 75
+     weapon.recoil = 6
+     weapon.bulk = 7.5
+     weapon.rof = 8
+     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.sound = "ppshSound"
+     weapon.jam = 7 -- 7/1000 per check
+     weapon.magSprite = "mp40Mag" -- placeholder
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "smg"
+
+weaponText_ppshBox= “”
+
+
+PPSh (drum)
+elseif(tag == "ppsh") then
+     -- PPSh with the iconic drum. This can use vanilla PPSh assets but with stat changes
+     weapon.action = "auto"
+     weapon.ammo = 35
+     weapon.maxAmmo = 35
+     weapon.range = 225
+     weapon.damage = 75
+     weapon.recoil = 6
+     weapon.bulk = 9
+     weapon.rof = 8
+     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.sound = "ppshSound"
+     weapon.jam = 12
+     weapon.magSprite = "ppshMag"
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "smg"
+
+weaponText_ = “ppsh”
+
+PPSh Obrez
+elseif(tag == "ppshObrez") then
+     -- partizan sawed-off PPSh with a 35-round magazine
+     weapon.action = "auto"
+     weapon.ammo = 35
+     weapon.maxAmmo = 35
+     weapon.range = 150
+     weapon.damage = 50
+     weapon.recoil = 6
+     weapon.bulk = 5
+     weapon.rof = 8
+     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.sound = "ppshSound"
+     weapon.jam = 14
+     weapon.magSprite = "ppshMag"
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "smg"
+
+weaponText_ppshObrez = “”
