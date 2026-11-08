@@ -160,7 +160,7 @@ elseif(tag == "avt40") then
      weapon.rof = 4
      weapon.rofTime = 0.085 -- approximately 706 rounds per minute
      weapon.sound = "svt40Sound"
-     weapon.jam = 14
+     weapon.jam = 16
      weapon.magSprite = "g43Mag" -- placeholder for 20-round magazine
      weapon.rgCapable = 0
      weapon.jammed = 0 
@@ -599,7 +599,7 @@ weaponText_scopedSvt40 = "Scoped SVT-40, fitted with a 3.5x PU telescopic sight.
 weaponText_scopedMosinPE = "Mosin M91/30, fitted with the more delicate 4x PE telescopic sight. Outstanding range and damage, but heavy to handle and limited to five rounds."
 weaponText_ptrd = "PTRD, single-shot 14.5mm anti-tank rifle. Excellent range and damage, but extremely cumbersome and requires reloading after every shot."
 weaponText_ptrs = "PTRS, semi-automatic 14.5mm anti-tank rifle with a five-round magazine. Powerful shots and rapid follow-up fire, but even heavier than the PTRD."
-weaponText_tozB = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little wonder and capable of a quick second shot."
+weaponText_tozB = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little marvel and capable of a quick second shot."
 weaponText_as44 = "AS-44, prototype 7.62x39mm Sudayev assault rifle with a 30-round magazine. Good range and steady automatic fire, but heavy and slow to handle."
 weaponText_rd44 = "RD-44, prototype 7.62x39mm Degtyarev machine gun. Very good payload (100), with manageable recoil and reduced range and damage."
 weaponText_rp46 = "Degtyarev DP with experimental belt-feed mechanism. Excellent payload (250-round belt), but cumbersome and prone to feed stoppages."
