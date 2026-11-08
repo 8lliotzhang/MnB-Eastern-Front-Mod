@@ -1,4 +1,6 @@
-  Mosin M91/30
+-- Weapon definition fragments: insert into the place where appropriate
+
+-- Mosin M91/30
 elseif(tag == "mosin") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -9,15 +11,14 @@ elseif(tag == "mosin") then
     weapon.bulk = 12
     weapon.rof = 10
     weapon.rofTime = 99
-    weapon.sound = "springfieldSound”
+    weapon.sound = "springfieldSound"
     weapon.jam = 3
     weapon.magSprite = "genericMag"
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-weaponText_mosin = “Mosin M91/30, standard issue rifle of the Red Army. Excellent range and damage, but heavier and slower firing than .”
 
-Mosin M38 Carbine
+-- Mosin M38 Carbine
 elseif(tag == "mosin38") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -34,11 +35,10 @@ elseif(tag == "mosin38") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-weaponText_mosin38= “Mosin M38 carbine, a shorter and lighter version of M91/30 rifle typically issued to non-infantry troops, but also a preferred weapon in Stalingrad.”
 
 
-Mosin M44 Carbine
--- Mosin 1944 carbine with folding bayonet, increased HTH damage and skill
+-- Mosin M44 Carbine
+-- Mosin 1944 carbine with folding bayonet; HTH bonuses require separate implementation
 elseif(tag == "mosin44") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -55,11 +55,10 @@ elseif(tag == "mosin44") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-weaponText_mosin44 = “Mosin M44 carbine, slightly heavier than M38 carbine due to its integrated folding bayonet.”
 
-Berdan II Rifle
+-- Berdan II Rifle
 elseif(tag == "berdan") then
-- Rare, obsolete single-shot black powder rifle that may be used by partizans
+-- Rare, obsolete single-shot black-powder rifle for Partizans
     weapon.action = "bolt"
     weapon.ammo = 1
     weapon.maxAmmo = 1
@@ -75,10 +74,9 @@ elseif(tag == "berdan") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-weaponText_berdan = “Berdan II rifle, now primarily used by partizans. Single shot, uses the old 10.7mm black powder cartridge.”
 
-SVT-38
-elseif(tag == "svt38") then 
+-- SVT-38
+elseif(tag == "svt38") then
 --  more similar to the vanilla SVT-40
     weapon.action = "semi"
     weapon.ammo = 10
@@ -88,16 +86,15 @@ elseif(tag == "svt38") then
     weapon.recoil = 15
     weapon.bulk = 9.0
     weapon.rof = 4
-    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.rofTime = 99 -- irrelevant for a semi
     weapon.sound = "svt40Sound"
     weapon.jam = 14
     weapon.magSprite = "genericMag" -- stripper clip fed
     weapon.rgCapable = 1
     weapon.jammed = 0
 
-weaponText_svt38 = “”
 
-SVT-40
+-- SVT-40
 elseif(tag == "svt40") then
     -- Improved over SVT-38 using the vanilla Match Garand principle
     weapon.action = "semi"
@@ -115,15 +112,14 @@ elseif(tag == "svt40") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-weaponText_svt40 = “”
 
-AVS-36
+-- AVS-36
 elseif(tag == "avs36") then
     -- Full-power automatic rifle with strong recoil
     weapon.action = "auto"
     weapon.ammo = 15
     weapon.maxAmmo = 15
-    weapon.range = 350 -- shorter barrel than AVT
+    weapon.range = 350 -- gameplay range choice
     weapon.damage = 105
     weapon.recoil = 10
     weapon.bulk = 10
@@ -133,11 +129,10 @@ elseif(tag == "avs36") then
     weapon.jam = 20 -- 20/1000 per check
     weapon.magSprite = "g43Mag" -- placeholder
     weapon.rgCapable = 0
-    weapon.jammed = 0 
+    weapon.jammed = 0
 
-weaponText_avs36 = “”
 
-AVT-40
+-- AVT-40
 elseif(tag == "avt40") then
     -- Improved automatic rifle with rare 20-round magazine
     weapon.action = "auto"
@@ -153,11 +148,10 @@ elseif(tag == "avt40") then
     weapon.jam = 14
     weapon.magSprite = "g43Mag" -- placeholder for 20-round magazine
     weapon.rgCapable = 0
-    weapon.jammed = 0 
+    weapon.jammed = 0
 
-weaponText_avt = “”
 
-PPD
+-- PPD
 elseif(tag == "ppd") then
      -- PPD with 25-round box magazine, replaces Sten
      weapon.action = "auto"
@@ -171,14 +165,13 @@ elseif(tag == "ppd") then
      weapon.rofTime = 0.075 -- nominal 800 rounds per minute
      weapon.sound = "stenSound" -- placeholder
      weapon.jam = 9 -- 9/1000 per check
-     weapon.magSprite = "m1CarbineMag”-- box-magazine placeholder
+     weapon.magSprite = "m1CarbineMag" -- box-magazine placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
 
-weaponText_ppd = “”
 
-PPS
+-- PPS
 elseif(tag == "pps") then
      -- Lightweight stamped-steel SMG with 35-round box magazine
      weapon.action = "auto"
@@ -197,9 +190,8 @@ elseif(tag == "pps") then
      weapon.jammed = 0
      weapon.class = "smg"
 
-weaponText_pps = “”
 
-PPSh (box)
+-- PPSh (box)
 elseif(tag == "ppshBox") then
      -- PPSh with 35-round box magazine
      weapon.action = "auto"
@@ -213,20 +205,19 @@ elseif(tag == "ppshBox") then
      weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
      weapon.sound = "ppshSound"
      weapon.jam = 7 -- 7/1000 per check
-     weapon.magSprite = "mp40Mag" -- placeholder
+     weapon.magSprite = "brenMag" -- placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
 
-weaponText_ppshBox= “”
 
 
-PPSh (drum)
+-- PPSh (drum)
 elseif(tag == "ppsh") then
      -- PPSh with the iconic drum. This can use vanilla PPSh assets but with stat changes
      weapon.action = "auto"
-     weapon.ammo = 35
-     weapon.maxAmmo = 35
+     weapon.ammo = 65
+     weapon.maxAmmo = 65
      weapon.range = 225
      weapon.damage = 75
      weapon.recoil = 6
@@ -240,9 +231,8 @@ elseif(tag == "ppsh") then
      weapon.jammed = 0
      weapon.class = "smg"
 
-weaponText_ = “ppsh”
 
-PPSh Obrez
+-- PPSh Obrez
 elseif(tag == "ppshObrez") then
      -- partizan sawed-off PPSh with a 35-round magazine
      weapon.action = "auto"
@@ -260,5 +250,3 @@ elseif(tag == "ppshObrez") then
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
-
-weaponText_ppshObrez = “”
