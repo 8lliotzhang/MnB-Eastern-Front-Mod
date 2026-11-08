@@ -1,0 +1,159 @@
+  Mosin M91/30
+elseif(tag == "mosin") then
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 500
+    weapon.damage = 105
+    weapon.recoil = 15
+    weapon.bulk = 12
+    weapon.rof = 10
+    weapon.rofTime = 99
+    weapon.sound = "springfieldSound”
+    weapon.jam = 3
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+weaponText_mosin = “Mosin M91/30, standard issue rifle of the Red Army. Excellent range and damage, but heavier and slower firing than .”
+
+Mosin M38 Carbine
+elseif(tag == "mosin38") then
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 400
+    weapon.damage = 80
+    weapon.recoil = 10
+    weapon.bulk = 7
+    weapon.rof = 10
+    weapon.rofTime = 99
+    weapon.sound = "springfieldSound"
+    weapon.jam = 3
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+weaponText_mosin38= “Mosin M38 carbine, a shorter and lighter version of M91/30 rifle typically issued to non-infantry troops, but also a preferred weapon in Stalingrad.”
+
+
+Mosin M44 Carbine
+-- Mosin 1944 carbine with folding bayonet, increased HTH damage and skill
+elseif(tag == "mosin44") then
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 400
+    weapon.damage = 80
+    weapon.recoil = 10
+    weapon.bulk = 7.5
+    weapon.rof = 10
+    weapon.rofTime = 99
+    weapon.sound = "springfieldSound"
+    weapon.jam = 3
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+weaponText_mosin44 = “Mosin M44 carbine, slightly heavier than M38 carbine due to its integrated folding bayonet.”
+
+Berdan II Rifle
+elseif(tag == "berdan") then
+- Rare, obsolete single-shot black powder rifle that may be used by partizans
+    weapon.action = "bolt"
+    weapon.ammo = 1
+    weapon.maxAmmo = 1
+    weapon.range = 300
+    weapon.damage = 120
+    weapon.recoil = 15
+    weapon.bulk = 12.6
+    weapon.rof = 10
+    weapon.rofTime = 99
+    weapon.sound = "g98Sound"
+    weapon.jam = 10
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+weaponText_berdan = “Berdan II rifle, now primarily used by partizans. Single shot, uses the old 10.7mm black powder cartridge.”
+
+SVT-38
+elseif(tag == "svt38") then 
+--  more similar to the vanilla SVT-40
+    weapon.action = "semi"
+    weapon.ammo = 10
+    weapon.maxAmmo = 10
+    weapon.range = 350
+    weapon.damage = 105
+    weapon.recoil = 15
+    weapon.bulk = 9.0
+    weapon.rof = 4
+    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.sound = "svt40Sound"
+    weapon.jam = 14
+    weapon.magSprite = "genericMag" -- stripper clip fed
+    weapon.rgCapable = 1
+    weapon.jammed = 0
+
+weaponText_svt38 = “”
+
+SVT-40
+elseif(tag == "svt40") then
+    -- Improved over SVT-38 using the vanilla Match Garand principle
+    weapon.action = "semi"
+    weapon.ammo = 10
+    weapon.maxAmmo = 10
+    weapon.range = 375
+    weapon.damage = 105
+    weapon.recoil = 13
+    weapon.bulk = 8.5
+    weapon.rof = 4
+    weapon.rofTime = 99 -- irrelevant for a semi
+    weapon.sound = "svt40Sound"
+    weapon.jam = 9
+    weapon.magSprite = "genericMag" -- stripper clip fed
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+weaponText_svt40 = “”
+
+AVS-36
+elseif(tag == "avs36") then
+    -- Full-power automatic rifle with strong recoil
+    weapon.action = "auto"
+    weapon.ammo = 15
+    weapon.maxAmmo = 15
+    weapon.range = 350 -- shorter barrel than AVT
+    weapon.damage = 105
+    weapon.recoil = 10
+    weapon.bulk = 10
+    weapon.rof = 4
+    weapon.rofTime = 0.075 -- nominal 800 rounds per minute
+    weapon.sound = "svt40Sound" -- placeholder
+    weapon.jam = 20 -- 20/1000 per check
+    weapon.magSprite = "g43Mag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0 
+
+weaponText_avs36 = “”
+
+AVT-40
+elseif(tag == "avt40") then
+    -- Improved automatic rifle with rare 20-round magazine
+    weapon.action = "auto"
+    weapon.ammo = 20
+    weapon.maxAmmo = 20
+    weapon.range = 375
+    weapon.damage = 105
+    weapon.recoil = 10
+    weapon.bulk = 9
+    weapon.rof = 4
+    weapon.rofTime = 0.085 -- approximately 706 rounds per minute
+    weapon.sound = "svt40Sound"
+    weapon.jam = 14
+    weapon.magSprite = "g43Mag" -- placeholder for 20-round magazine
+    weapon.rgCapable = 0
+    weapon.jammed = 0 
+
+weaponText_avt = “”
+
