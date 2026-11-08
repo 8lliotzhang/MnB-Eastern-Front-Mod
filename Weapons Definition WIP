@@ -1,6 +1,7 @@
--- Weapon definition fragments: insert into the place where appropriate
+Weapons
+Mosin and SVTs will not be RG capable, unless we want to implement Dyakonov or VPGS-41 (neither were particularly common)
 
--- Mosin M91/30
+Mosin M1891/30
 elseif(tag == "mosin") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -11,14 +12,13 @@ elseif(tag == "mosin") then
     weapon.bulk = 12
     weapon.rof = 10
     weapon.rofTime = 99
-    weapon.sound = "springfieldSound"
+    weapon.sound = "springfieldSound”
     weapon.jam = 3
     weapon.magSprite = "genericMag"
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-
--- Mosin M38 Carbine
+Mosin M38 Carbine
 elseif(tag == "mosin38") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -35,10 +35,7 @@ elseif(tag == "mosin38") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-
-
--- Mosin M44 Carbine
--- Mosin 1944 carbine with folding bayonet; HTH bonuses require separate implementation
+Mosin M44 Carbine
 elseif(tag == "mosin44") then
     weapon.action = "bolt"
     weapon.ammo = 5
@@ -55,10 +52,9 @@ elseif(tag == "mosin44") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
-
--- Berdan II Rifle
+Berdan II Rifle
 elseif(tag == "berdan") then
--- Rare, obsolete single-shot black-powder rifle for Partizans
+- Rare, obsolete single-shot black powder rifle that may be used by partizans
     weapon.action = "bolt"
     weapon.ammo = 1
     weapon.maxAmmo = 1
@@ -74,9 +70,27 @@ elseif(tag == "berdan") then
     weapon.rgCapable = 0
     weapon.jammed = 0
 
+Mosin M91/30 Bramit
+elseif(tag == "mosinBramit") then
+    -- Suppressed M91/30 with reduced-velocity ammunition
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 350
+    weapon.damage = 90
+    weapon.recoil = 10
+    weapon.bulk = 13
+    weapon.rof = 10
+    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.sound = "sten5Sound" -- suppressed sound placeholder
+    weapon.jam = 5
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
 
--- SVT-38
-elseif(tag == "svt38") then
+Semi-Automatic Rifles
+SVT-38
+elseif(tag == "svt38") then 
 --  more similar to the vanilla SVT-40
     weapon.action = "semi"
     weapon.ammo = 10
@@ -86,15 +100,15 @@ elseif(tag == "svt38") then
     weapon.recoil = 15
     weapon.bulk = 9.0
     weapon.rof = 4
-    weapon.rofTime = 99 -- irrelevant for a semi
+    weapon.rofTime = 99 -- irrelevant for a bolt
     weapon.sound = "svt40Sound"
     weapon.jam = 14
     weapon.magSprite = "genericMag" -- stripper clip fed
-    weapon.rgCapable = 1
+    weapon.rgCapable = 0
     weapon.jammed = 0
 
 
--- SVT-40
+SVT-40
 elseif(tag == "svt40") then
     -- Improved over SVT-38 using the vanilla Match Garand principle
     weapon.action = "semi"
@@ -113,13 +127,15 @@ elseif(tag == "svt40") then
     weapon.jammed = 0
 
 
--- AVS-36
+
+Automatic Rifles
+AVS-36
 elseif(tag == "avs36") then
     -- Full-power automatic rifle with strong recoil
     weapon.action = "auto"
     weapon.ammo = 15
     weapon.maxAmmo = 15
-    weapon.range = 350 -- gameplay range choice
+    weapon.range = 350 -- shorter barrel than AVT
     weapon.damage = 105
     weapon.recoil = 10
     weapon.bulk = 10
@@ -129,101 +145,100 @@ elseif(tag == "avs36") then
     weapon.jam = 20 -- 20/1000 per check
     weapon.magSprite = "g43Mag" -- placeholder
     weapon.rgCapable = 0
-    weapon.jammed = 0
+    weapon.jammed = 0 
 
-
--- AVT-40
+AVT-40
 elseif(tag == "avt40") then
-    -- Improved automatic rifle with rare 20-round magazine
-    weapon.action = "auto"
-    weapon.ammo = 20
-    weapon.maxAmmo = 20
-    weapon.range = 375
-    weapon.damage = 105
-    weapon.recoil = 10
-    weapon.bulk = 9
-    weapon.rof = 4
-    weapon.rofTime = 0.085 -- approximately 706 rounds per minute
-    weapon.sound = "svt40Sound"
-    weapon.jam = 14
-    weapon.magSprite = "g43Mag" -- placeholder for 20-round magazine
-    weapon.rgCapable = 0
-    weapon.jammed = 0
+     -- Improved automatic rifle with rare 20-round magazine
+     weapon.action = "auto"
+     weapon.ammo = 20
+     weapon.maxAmmo = 20
+     weapon.range = 375
+     weapon.damage = 105
+     weapon.recoil = 10
+     weapon.bulk = 9
+     weapon.rof = 4
+     weapon.rofTime = 0.085 -- approximately 706 rounds per minute
+     weapon.sound = "svt40Sound"
+     weapon.jam = 14
+     weapon.magSprite = "g43Mag" -- placeholder for 20-round magazine
+     weapon.rgCapable = 0
+     weapon.jammed = 0 
 
 
--- PPD
+SMGs
+
+PPD
 elseif(tag == "ppd") then
      -- PPD with 25-round box magazine, replaces Sten
      weapon.action = "auto"
      weapon.ammo = 25
      weapon.maxAmmo = 25
-     weapon.range = 225
-     weapon.damage = 75
+     weapon.range = 250
+     weapon.damage = 70
      weapon.recoil = 7
      weapon.bulk = 8
-     weapon.rof = 6
+     weapon.rof = 15
      weapon.rofTime = 0.075 -- nominal 800 rounds per minute
      weapon.sound = "stenSound" -- placeholder
      weapon.jam = 9 -- 9/1000 per check
-     weapon.magSprite = "m1CarbineMag" -- box-magazine placeholder
+     weapon.magSprite = "m1CarbineMag”-- box-magazine placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
 
-
--- PPS
+PPS
 elseif(tag == "pps") then
      -- Lightweight stamped-steel SMG with 35-round box magazine
      weapon.action = "auto"
      weapon.ammo = 35
      weapon.maxAmmo = 35
-     weapon.range = 225
-     weapon.damage = 75
+     weapon.range = 250
+     weapon.damage = 70
      weapon.recoil = 7
      weapon.bulk = 6
-     weapon.rof = 6
+     weapon.rof = 10
      weapon.rofTime = 0.10 -- nominal 600 rounds per minute
      weapon.sound = "ppshSound" -- placeholder
      weapon.jam = 5 -- 5/1000 per check
-     weapon.magSprite = "brenMag" -- placeholder
+     weapon.magSprite = "mp40Mag" -- placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
 
 
--- PPSh (box)
+PPSh (box)
 elseif(tag == "ppshBox") then
      -- PPSh with 35-round box magazine
      weapon.action = "auto"
      weapon.ammo = 35
      weapon.maxAmmo = 35
-     weapon.range = 225
-     weapon.damage = 75
+     weapon.range = 265
+     weapon.damage = 70
      weapon.recoil = 6
      weapon.bulk = 7.5
-     weapon.rof = 8
-     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.rof = 15
+     weapon.rofTime = 0.06
      weapon.sound = "ppshSound"
      weapon.jam = 7 -- 7/1000 per check
-     weapon.magSprite = "brenMag" -- placeholder
+     weapon.magSprite = "mp40Mag" -- placeholder
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
 
 
-
--- PPSh (drum)
-elseif(tag == "ppsh") then
+PPSh (drum)
+elseif(tag == "ppsh41") then
      -- PPSh with the iconic drum. This can use vanilla PPSh assets but with stat changes
      weapon.action = "auto"
      weapon.ammo = 65
-     weapon.maxAmmo = 65
-     weapon.range = 225
-     weapon.damage = 75
+     weapon.maxAmmo = 35
+     weapon.range = 265
+     weapon.damage = 70
      weapon.recoil = 6
      weapon.bulk = 9
-     weapon.rof = 8
-     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.rof = 20
+     weapon.rofTime = 0.06
      weapon.sound = "ppshSound"
      weapon.jam = 12
      weapon.magSprite = "ppshMag"
@@ -231,8 +246,7 @@ elseif(tag == "ppsh") then
      weapon.jammed = 0
      weapon.class = "smg"
 
-
--- PPSh Obrez
+PPSh Obrez
 elseif(tag == "ppshObrez") then
      -- partizan sawed-off PPSh with a 35-round magazine
      weapon.action = "auto"
@@ -240,13 +254,371 @@ elseif(tag == "ppshObrez") then
      weapon.maxAmmo = 35
      weapon.range = 150
      weapon.damage = 50
-     weapon.recoil = 6
+     weapon.recoil = 7
      weapon.bulk = 5
-     weapon.rof = 8
-     weapon.rofTime = 0.0667 -- nominal 900 rounds per minute
+     weapon.rof = 15
+     weapon.rofTime = 0.0667
      weapon.sound = "ppshSound"
      weapon.jam = 14
-     weapon.magSprite = "ppshMag"
+     weapon.magSprite = "mp40Mag"
      weapon.rgCapable = 0
      weapon.jammed = 0
      weapon.class = "smg"
+
+PPD Bramit (box)
+elseif(tag == "ppdBramit") then
+    -- Suppressed PPD with 25-round box magazine
+    weapon.action = "auto"
+    weapon.ammo = 25
+    weapon.maxAmmo = 25
+    weapon.range = 200
+    weapon.damage = 65
+    weapon.recoil = 5
+    weapon.bulk = 9
+    weapon.rof = 15
+    weapon.rofTime = 0.075 -- nominal 800 rounds per minute
+    weapon.sound = "sten5Sound" -- placeholder
+    weapon.jam = 11
+    weapon.magSprite = "m1CarbineMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "smg"
+
+PPD Bramit (drum)
+elseif(tag == "ppdBramitDrum") then
+    -- suppressed PPD with drum magazine
+    weapon.action = "auto"
+    weapon.ammo = 65
+    weapon.maxAmmo = 65
+    weapon.range = 200
+    weapon.damage = 65
+    weapon.recoil = 5
+    weapon.bulk = 10.5
+    weapon.rof = 15
+    weapon.rofTime = 0.075 -- nominal 800 rounds per minute
+    weapon.sound = "sten5Sound" -- placeholder
+    weapon.jam = 14
+    weapon.magSprite = "ppshMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "smg"
+
+Machine Guns
+
+DP
+elseif(tag == "dp") then
+    -- Pan-fed light machine gun with sustained automatic fire
+    weapon.action = "auto"
+    weapon.ammo = 47
+    weapon.maxAmmo = 47
+    weapon.range = 375
+    weapon.damage = 95
+    weapon.recoil = 10
+    weapon.bulk = 22
+    weapon.rof = 12
+    weapon.rofTime = 0.11 -- nominal 545 rounds per minute
+    weapon.sound = "zb26Sound" -- placeholder
+    weapon.jam = 9 
+    weapon.magSprite = "ppshMag" -- placeholder; needs DP pan sprite
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "lmg"
+
+
+
+DPM
+elseif(tag == "dpm") then
+     -- Improved DP with better handling and reliability
+     weapon.action = "auto"
+     weapon.ammo = 47
+     weapon.maxAmmo = 47
+     weapon.range = 375
+     weapon.damage = 95
+     weapon.recoil = 10
+     weapon.bulk = 20
+     weapon.rof = 10
+     weapon.rofTime = 0.109 -- nominal 550 rounds per minute
+     weapon.sound = "brenSound" -- placeholder
+     weapon.jam = 6
+     weapon.magSprite = "ppshMag" -- placeholder for pan magazine
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "lmg"
+
+
+DT
+elseif(tag == "dt") then
+     -- Compact Degtyarev machine gun with 63-round pan
+     weapon.action = "auto"
+     weapon.ammo = 63
+     weapon.maxAmmo = 63
+     weapon.range = 350
+     weapon.damage = 95
+     weapon.recoil = 11
+     weapon.bulk = 18
+     weapon.rof = 10
+     weapon.rofTime = 0.109 -- nominal 550 rounds per minute
+     weapon.sound = "brenSound" -- placeholder
+     weapon.jam = 7 -- 7/1000 per check
+     weapon.magSprite = "ppshMag" -- placeholder for DT pan
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "lmg"
+
+MG 42 (captured and formally assigned, exclusive to gunner)
+    identical to MG42 in vanilla but impervious to standardisation
+
+
+
+Scoped Rifles
+
+Selected Mosin
+elseif(tag == "mosinSelected") then
+    -- Selected iron-sight M91/30 for the sniper's starting weapon
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 500
+    weapon.damage = 105
+    weapon.recoil = 15
+    weapon.bulk = 12
+    weapon.rof = 10
+    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.sound = "springfieldSound"
+    weapon.jam = 1
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+elseif(tag == "mosinSelected") then
+    -- Selected iron-sight M91/30 for the sniper's starting weapon
+    weapon.action = "bolt"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 500
+    weapon.damage = 105
+    weapon.recoil = 15
+    weapon.bulk = 12
+    weapon.rof = 10
+    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.sound = "springfieldSound"
+    weapon.jam = 1 -- gameplay reliability bonus
+    weapon.magSprite = "genericMag"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+Mosin M91/30 PU
+elseif(tag == "scopedMosinPU") then
+ -- M91/30 sniper rifle with PU scope
+ weapon.action = "bolt"
+ weapon.ammo = 5
+ weapon.maxAmmo = 5
+ weapon.range = 550
+ weapon.damage = 120
+ weapon.recoil = 15
+ weapon.bulk = 14
+ weapon.rof = 10
+ weapon.rofTime = 99 -- irrelevant for a bolt
+ weapon.sound = "germanSniper" -- placeholder
+ weapon.jam = 3 -- 3/1000 per check
+ weapon.magSprite = "genericMag"
+ weapon.rgCapable = 0
+ weapon.jammed = 0
+
+SVT-40 PU
+elseif(tag == "scopedSvt40") then
+ -- SVT-40 with PU scope
+ weapon.action = "semi"
+ weapon.ammo = 10
+ weapon.maxAmmo = 10
+ weapon.range = 475
+ weapon.damage = 110
+ weapon.recoil = 13
+ weapon.bulk = 11
+ weapon.rof = 2
+ weapon.rofTime = 99
+ weapon.sound = "svt40Sound"
+ weapon.jam = 9
+ weapon.magSprite = "genericMag"
+ weapon.rgCapable = 0
+ weapon.jammed = 0
+
+
+Mosin M91/30 PE
+elseif(tag == "scopedMosinPE") then
+ -- Top-tier M91/30 sniper rifle with PE scope
+ weapon.action = "bolt"
+ weapon.ammo = 5
+ weapon.maxAmmo = 5
+ weapon.range = 600
+ weapon.damage = 120
+ weapon.recoil = 15
+ weapon.bulk = 15
+ weapon.rof = 10
+ weapon.rofTime = 99 -- irrelevant for a bolt
+ weapon.sound = "germanSniper" -- placeholder
+ weapon.jam = 2 -- 2/1000 per check
+ weapon.magSprite = "genericMag"
+ weapon.rgCapable = 0
+ weapon.jammed = 0
+
+New Class: AT Rifles (primary)
+
+PzBr. 39
+    identical to vanilla
+
+Boys
+    identical to vanilla
+
+PTRD
+elseif(tag == "ptrd") then
+    -- single-shot 14.5mm primary anti-tank rifle
+    weapon.action = "bolt"
+    weapon.ammo = 1
+    weapon.maxAmmo = 1
+    weapon.range = 1000
+    weapon.damage = 250
+    weapon.recoil = 30
+    weapon.bulk = 35
+    weapon.rof = 1
+    weapon.rofTime = 99 -- irrelevant for a bolt
+    weapon.sound = "atRifleSound" -- placeholder
+    weapon.jam = 3
+    weapon.magSprite = "genericMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "atRifle"
+
+
+PTRS
+elseif(tag == "ptrs") then
+    -- semi auto 14.5mm primary anti-tank rifle
+    weapon.action = "semi"
+    weapon.ammo = 5
+    weapon.maxAmmo = 5
+    weapon.range = 1000
+    weapon.damage = 250
+    weapon.recoil = 25
+    weapon.bulk = 40
+    weapon.rof = 1
+    weapon.rofTime = 99 -- not used as the semi-auto shot interval
+    weapon.sound = "atRifleSound" -- placeholder
+    weapon.jam = 8
+    weapon.magSprite = "genericMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "atRifle"
+
+
+Special and Crate Guns
+
+TOZ-B
+elseif(tag == "tozB") then
+    -- Double-barrel hunting shotgun; semi action permits follow-up shot
+    weapon.action = "semi"
+    weapon.ammo = 2
+    weapon.maxAmmo = 2
+    weapon.range = 300
+    weapon.damage = 200
+    weapon.recoil = 20
+    weapon.bulk = 5
+    weapon.rof = 1
+    weapon.rofTime = 99 -- not used as the semi-auto shot interval
+    weapon.sound = "shotGunSound" -- placeholder
+    weapon.jam = 2
+    weapon.magSprite = "genericMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+
+AS-44
+elseif(tag == "as44") then
+    -- Experimental assault rifle, longer ranged than StG44 but higher bulk and recoil
+    weapon.action = "auto"
+    weapon.ammo = 30
+    weapon.maxAmmo = 30
+    weapon.range = 365
+    weapon.damage = 85
+    weapon.recoil = 5
+    weapon.bulk = 12
+    weapon.rof = 10
+    weapon.rofTime = 0.10 -- nominal 600 rounds per minute
+    weapon.sound = "stg44Sound" -- placeholder
+    weapon.jam = 15 -- 
+    weapon.magSprite = "stgMag" -- placeholder
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+
+
+RD-44
+elseif(tag == "rd44") then
+     -- Rare supply-crate experimental belt-fed LMG
+     weapon.action = "auto"
+     weapon.ammo = 100
+     weapon.maxAmmo = 100
+     weapon.range = 350
+     weapon.damage = 85
+     weapon.recoil = 7
+     weapon.bulk = 19
+     weapon.rof = 15
+     weapon.rofTime = 0.0923 -- nominal 650 rounds per minute
+     weapon.sound = "brenSound"
+     weapon.jam = 8
+     weapon.magSprite = "ammoBox"
+     weapon.rgCapable = 0
+     weapon.jammed = 0
+     weapon.class = "lmg"
+
+
+Belt-Fed DP 
+elseif(tag == "rp46") then
+    -- Rare supply-crate belt-fed DP / RP-46 prototype
+    weapon.action = "auto"
+    weapon.ammo = 250
+    weapon.maxAmmo = 250
+    weapon.range = 375
+    weapon.damage = 95
+    weapon.recoil = 10
+    weapon.bulk = 26
+    weapon.rof = 20
+    weapon.rofTime = 0.10 -- nominal 600 rounds per minute
+    weapon.sound = "brenSound" -- placeholder    
+    weapon.jam = 10 -- 
+    weapon.magSprite = "ammoBox"
+    weapon.rgCapable = 0
+    weapon.jammed = 0
+    weapon.class = "lmg"
+
+Weapon Text
+
+weaponText_mosin = "Mosin M91/30, the standard-issue rifle of the Red Army. Excellent range and damage, but heavy and slow to fire."
+weaponText_mosin38 = "Mosin M38 carbine, a shorter and lighter version of the M91/30."
+weaponText_mosin44 = "Mosin M44 carbine, slightly heavier than Mosin M38 due to the integrated folding bayonet.”
+weaponText_berdan = "Berdan II, an obsolete single-shot rifle found among Partizans. Fires a powerful black-powder cartridge, but requires reloading after every shot."
+weaponText_mosinBramit = "Mosin M91/30 fitted with a Bramit suppressor. Reduced-velocity ammunition softens recoil, at the cost of range and damage."
+weaponText_svt38 = "SVT-38, early Soviet semi-automatic rifle. Powerful at medium range, but suffers reliability issues and has an unwieldy centre of mass."
+weaponText_svt40 = "SVT-40, improved Soviet semi-automatic rifle. Lighter and more reliable, with improved range."
+weaponText_avs36 = "AVS-36, early Soviet automatic rifle with 15-round magazine. Powerful shots and rapid bursts, but prone to stoppages and almost uncontrollable recoil."
+weaponText_avt40 = "AVT-40, full-auto SVT-40 with a rare 20-round magazine. Greater range and capacity than the AVS-36, with improved handling and reliability."
+weaponText_ppd = "PPD, early Soviet submachine gun with a 25-round box magazine. Frequent reloads due to high rate of fire and relatively small magazine capacity."
+weaponText_pps = "PPS, mass-produced lightweight submachine gun with 35-round magazine. Easy to handle and reliable, with a moderate firing rate."
+weaponText_ppshBox = "PPSh with a 35-round box magazine. Rapid fire and good close-range damage, with less bulk and better reliability than the drum version."
+weaponText_ppsh = "PPSh with its iconic drum. Sustained close-range fire, at the cost of greater bulk and more frequent stoppages."
+weaponText_ppshObrez = "PPSh Obrez, used by partisans in concealed carry. Sacrifices range and damage for extremely low bulk.”
+weaponText_mosinBramit = "Mosin M91/30 fitted with a Bramit suppressor. Reduced-velocity ammunition softens recoil, at the cost of range and damage."
+weaponText_ppdBramit = "PPD fitted with a Bramit suppressor and a 25-round box magazine. Fast, low-recoil fire at close range, but limited capacity and reduced damage."
+weaponText_ppdBramitDrum = "PPD fitted with a Bramit suppressor and a drum. Ample ammunition for silent close-range fire, but bulkier and more prone to stoppages due to drum feed."
+weaponText_dp = "DP, Degtyarev light machine gun fed by a distinctive 47-round pan magazine. Good range and magazine capacity, but prone to feed issues and recoil spring overheating."
+weaponText_dpm = "DPM, Degtyarev light machine gun improved with a redesigned recoil spring arrangement for greater reliability and a pistol grip for better handling."
+weaponText_dt = "DT, compact Degtyarev tank machine gun adapted for infantry use. A 63-round pan provides extended fire, while the retractable stock and pistol grip improve handling."
+weaponText_mosinSelected = "A carefully selected and maintained Mosin M91/30 issued to a marksman. Excellent range, powerful shots, and dependable operation."
+weaponText_scopedMosin = "Scoped M91/30, fitted with a 3.5x PU telescopic sight. Excellent range and damage, but heavy and slow to handle."
+weaponText_scopedSvt40 = "Scoped SVT-40, fitted with a 3.5x PU telescopic sight. Allows rapid follow-up shots, trading some long-range precision for greater firepower."
+weaponText_scopedMosinPE = "Mosin M91/30, fitted with the more delicate 4x PE telescopic sight. Outstanding range and damage, but heavy to handle and limited to five rounds."
+weaponText_ptrd = "PTRD, single-shot 14.5mm anti-tank rifle. Excellent range and damage, but extremely cumbersome and requires reloading after every shot."
+weaponText_ptrs = "PTRS, semi-automatic 14.5mm anti-tank rifle with a five-round magazine. Powerful shots and rapid follow-up fire, but even heavier than the PTRD."
+weaponText_tozB = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little wonder and capable of a quick second shot.”
+weaponText_as44 = "AS-44, prototype 7.62x39mm Sudayev assault rifle with a 30-round magazine. Good range and steady automatic fire, but heavy and slow to handle."
+weaponText_rd44 = "RD-44, prototype 7.62x39mm Degtyarev machine gun. Very good payload (100), with manageable recoil and reduced range and damage."
+weaponText_rp46 = "Degtyarev DP with experimental belt-feed mechanism. Excellent payload (250-round belt), but cumbersome and prone to feed stoppages."
+
