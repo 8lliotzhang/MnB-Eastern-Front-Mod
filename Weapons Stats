@@ -522,7 +522,7 @@ elseif(tag == "as44") then
     weapon.maxAmmo = 30
     weapon.range = 365
     weapon.damage = 85
-    weapon.recoil = 5
+    weapon.recoil = 6
     weapon.bulk = 12
     weapon.rof = 10
     weapon.rofTime = 0.10 -- nominal 600 rounds per minute
@@ -541,7 +541,7 @@ elseif(tag == "rd44") then
      weapon.maxAmmo = 100
      weapon.range = 350
      weapon.damage = 85
-     weapon.recoil = 7
+     weapon.recoil = 5
      weapon.bulk = 19
      weapon.rof = 15
      weapon.rofTime = 0.0923 -- nominal 650 rounds per minute
