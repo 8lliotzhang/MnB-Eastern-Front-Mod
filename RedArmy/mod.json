@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "eastern_front",
+  "name": "Eastern Front",
+  "version": "0.1.0",
+  "authors": ["Eastern Front Mod Team"],
+  "description": "The Red Army replaces the Allies: 117th Guards Rifle Regiment, from the Dnieper to Berlin. Work in progress.",
+  "category": "Content",
+  "tags": ["Faction", "Eastern Front", "Red Army"],
+  "load_priority": 50,
+  "game_version": ">=0.5.3"
+}

@@ -1,0 +1,8 @@
+# PLACEHOLDER: a few sample surnames. Replace with the real list.
+# One name per line. Lines starting with # are ignored.
+Ivanov
+Petrov
+Smirnov
+Kuznetsov
+Sokolov
+Popov

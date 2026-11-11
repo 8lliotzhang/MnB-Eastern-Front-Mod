@@ -1,0 +1,640 @@
+#:schema ./faction.schema.json
+# faction.toml: the Red Army takes over the Allied side. No code needed for anything in here.
+#
+# How to read this file:
+#   REAL         = taken from the planning doc or the "Weapons Stats" sheet.
+#   PLACEHOLDER  = a small example, nothing decided yet. Replace it.
+#   Lines starting with "# " are switched off. Remove the "# " to switch them on.
+#   Anything left out stays as in the vanilla game.
+#
+# Check the file after every change:   qm faction check RedArmy
+# Full guide: QuarterMaster modding wiki, Part 3.
+
+schema = 1                   # file format version, leave at 1
+id = "red_army"              # stored in saves, never change it after release
+name = "Red Army"
+replaces = "allied"          # the side we take over
+side_name = "Soviet"         # the word the game uses for our side
+description = "117th Guards Rifle Regiment, 39th Guards Rifle Division. From the Dnieper to Berlin."
+
+
+# ============================== NAMES ==============================
+# Soldier names. PLACEHOLDER: the lists hold a few sample names.
+[names]
+last_file = "names/last.txt"             # one surname per line
+# first_file = "names/first.txt"         # first names, only used with format = "full"
+# format = "full"                        # "Ivan Petrov" instead of "I. Petrov"
+vehicles = ["Za Rodinu", "Boevaya Podruga"]          # vehicle call signs
+french = { last = ["Kovalenko", "Shevchenko"] }      # names for the partisans (the vanilla French unit)
+
+
+# ============================== TEXT ==============================
+# Replaces any game text by its name. The names are in the game's includes/localisation.lua.
+# REAL: renames from the planning doc. The effect numbers are the vanilla ones, text can't change them.
+[text]
+conditionTitle_41 = "INSPIRING SPEECH"       # was Good Coffee
+conditionText_41 = "Our zampolit has been doing a lot of good work for the company's morale, and after today's speech the boys feel inspired to show their resolve in combat. Allies have +5 to starting max morale and a +5% to movement speed."
+conditionTitle_49 = "TO THE WEST!"           # was Gerhardt's Pressure
+conditionText_49 = "Komdiv has issued a new directive, pressuring us to exploit the recent breakthrough and seize the next objective - now. Finish the map within 20 mins to get twice the XP or get nothing (0 xp)."
+conditionTitle_19 = "HARDENED VETERANS"      # was Eastern Front Veterans
+conditionText_19 = "The troops we are facing have been fighting for a while and are well accustomed to combat. Evidence suggests they are even using captured equipment against us. German units have a +5% bonus to combat skill."
+conditionTitle_11 = "SPOILED PROVISIONS"     # was K Rations
+conditionText_11 = "Unfortunately our provisions have spoiled, and those that didn't are neither appetising nor enough for the men. Allied forces have -10% max health during this mission."
+conditionTitle_30 = "LIBERATED LIQUOR"       # was Pin Up
+conditionText_30 = "The boys have captured some German schnapps. Spirits are high, and bottles are empty! +100 XP to the commander. Za zdorovye!"
+conditionTitle_28 = "ACES OF THE LUFTWAFFE"  # was Last of the Luftwaffe
+conditionText_28 = "The enemy has deployed some particularly skilled pilots to our sector, and frontal aviation is having a hard time. There is a 20% chance any enemy air support called by the Germans during this mission will make a second pass later on."
+conditionTitle_38 = "SUBBOTNIK"              # was Voluntold
+conditionText_38 = "One of our comrades has returned from a 'volunteer' debris clearing detail. His patriotic zeal has been somewhat tempered, but he gained some work experience. One soldier has a -5% to max morale and +1 XP."
+conditionTitle_27 = "FREE HUNTERS"           # was Air Superiority (the doc wants 10%, vanilla is 20%)
+conditionText_27 = "The aces of the 176th Guards Fighter Regiment are out hunting the Luftwaffe. Axis air support has a 20% chance to be cancelled when called."
+conditionTitle_69 = "ADVANCED GUARD"         # was Tip of the Spear
+conditionText_69 = "We are spearheading the breakthrough, smashing through enemy lines ahead of the main forces. The Germans are throwing everything they have at us! Expect +1 enemy for each day ahead"
+# Same conditions, same names, new story text.
+conditionText_20 = "Thanks to the bombing efforts of our Western Allies, the Fascists will receive less supplies than usual. Axis troops have -10% chance of having special equipment on this map."       # Failing Industry
+conditionText_29 = "Comrades, the 45th Separate Guards Sapper Battalion found an enemy weapon cache while clearing mines. They were kind enough to drop us a crate. A spotted German weapon crate will be present at the starting line."       # On Site Acquisition
+conditionText_37 = "Fresh supplies from our Western allies have arrived. Courtesy of Uncle Sam!"       # Industrialism
+conditionText_54 = "Recon reports that enemy infiltration units have exploited a gap in our lines and may operate in your vicinity. 1% per kill to spawn Jagers."       # Compromised Lines
+conditionText_56 = "The enemy is trying to repeat what they did in 1941 and has deployed Brandenburgers behind our lines. Command wants us to deal with them immediately."       # The Crucible
+conditionText_61 = "Friendly troops have been cut off ahead and are in urgent need of supplies, and we are going to be the ones to deliver them. x2 XP if the crate makes it to the end, 0 XP if not."       # Secondary Duties
+conditionText_74 = "The enemy has set up an HQ right where we are going to be advancing. This is an excellent opportunity to neutralise their leadership and capture valuable intel. Search the house for actionable intel if it still stands."       # Vultures Nest
+conditionTitle_60 = "ARMED RESUPPLY"         # was Gravy Train (the tractor staying to fight needs code)
+conditionText_60 = "Uncharacteristically, supply is quite efficient today and delivering goods directly to our frontlines. With each German casualty, there is a 3% chance of a T-20 Komsomolets supplying your section."
+# Commander ability: 81mm mortars become 82mm.
+skillText_5 = "82mm Mortars"
+playerSkillText_5 = "82mm Mortars: Call in heavy mortar support. Relatively fast delivery and hard punching. 82mm mortars will deliver 8 rounds + 2 per rarity tiers."
+lootText_ration = "Tushonka, +5 to max health"
+lootText_molotov = "An incendiary bottle. Right click to use once looted."
+# PLACEHOLDER: the doc's Guards ranks. Only the promote buttons are text; the rank names shown
+# on soldiers (Recruit, Private, Corporal ...) are in game code and need a qm.toml patch.
+# rankText_1 = "Promote to Gv. yefreitor, soldier gains +5% to his combat skill"
+# rankText_2 = "Promote to Gv. Ml. Serzhant, soldier gains +10% to his combat skill"
+# rankText_3 = "Promote to Gv. Serzhant, soldier gains +15% to his combat skill"
+
+
+# ============================== UNIT ART ==============================
+# One folder per unit, one image per animation frame: idle.png, aim.png, reload1.png ...
+# Frame names are listed in the wiki (Part 3, "Frame names").
+# PLACEHOLDER: the folders are empty, so every unit still looks vanilla.
+[units.base]                 # the ordinary rifleman
+folder = "units/base"
+
+[units.sarge]                # the sergeant
+folder = "units/sarge"
+copy_from = "base"           # frames missing here use the base frames
+
+[units.para]                 # vanilla paratroopers. Planned: Black Coats (Soviet marines)
+folder = "units/para"
+copy_from = "base"
+
+[units.french]               # vanilla French resistance. Planned: partisans
+folder = "units/french"
+# frames = { idle = "units/shared/idle_cap.png" }    # point a single frame at any file
+
+
+# ============================== WEAPONS ==============================
+# Two kinds:
+#   reskin = "<vanilla tag>"                   changes a weapon the game already has
+#   tag = "<new tag>" + based_on = "<vanilla>" adds a new weapon, starting as a copy of a vanilla one
+# REAL: tags, names, text and stats come from "Weapons Stats" and "Weapon Tags".
+# PLACEHOLDER: based_on picks, and every sound and mag_sprite (game ones reused for now).
+# Art: files are weapons/top_<tag>.png (in hand) and weapons/side_<tag>.png (in menus).
+#      Lines with "# top_sprite" / "# side_sprite" are waiting for art. Add the file, then remove the "# ".
+# Own sounds: sound = "weapons/mosin" picks up mosin1.wav, mosin2.wav ... in that folder.
+
+# ---- Bolt action rifles and carbines ----
+[[weapons]]
+tag = "mosin"
+based_on = "springfield"
+name = "Mosin M91/30"
+description = "Mosin M91/30, the standard-issue rifle of the Red Army. Excellent range and damage, but heavy and slow to fire."
+top_sprite = "weapons/top_mosin.png"
+side_sprite = "weapons/side_mosin.png"
+sound = "springfieldSound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 500, damage = 105, recoil = 15, bulk = 12, rof = 10, rofTime = 99, jam = 3, rgCapable = 0 }
+
+[[weapons]]
+tag = "mosin38"
+based_on = "springfield"
+name = "Mosin M38 Carbine"
+description = "Mosin M38 carbine, a shorter and lighter version of the M91/30."
+# top_sprite = "weapons/top_mosin38.png"
+side_sprite = "weapons/side_mosin38.png"
+sound = "springfieldSound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 400, damage = 80, recoil = 10, bulk = 7, rof = 10, rofTime = 99, jam = 3, rgCapable = 0 }
+
+[[weapons]]
+tag = "mosin44"
+based_on = "springfield"
+name = "Mosin M44 Carbine"
+description = "Mosin M44 carbine, slightly heavier than Mosin M38 due to the integrated folding bayonet."
+# top_sprite = "weapons/top_mosin44.png"
+side_sprite = "weapons/side_mosin44.png"
+sound = "springfieldSound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 400, damage = 80, recoil = 10, bulk = 7.5, rof = 10, rofTime = 99, jam = 3, rgCapable = 0 }
+
+[[weapons]]
+tag = "berdan"
+based_on = "g98"
+name = "Berdan II"
+description = "Berdan II, an obsolete single-shot rifle found among Partizans. Fires a powerful black-powder cartridge, but requires reloading after every shot."
+# top_sprite = "weapons/top_berdan.png"
+# side_sprite = "weapons/side_berdan.png"
+sound = "g98Sound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 1, maxAmmo = 1, range = 300, damage = 120, recoil = 15, bulk = 12.6, rof = 10, rofTime = 99, jam = 10, rgCapable = 0 }
+
+[[weapons]]
+tag = "mosinBramit"
+based_on = "springfield"
+name = "Mosin BraMit"
+description = "Mosin M91/30 fitted with a Bramit suppressor. Reduced-velocity ammunition softens recoil, at the cost of range and damage."
+# top_sprite = "weapons/top_mosinBramit.png"
+# side_sprite = "weapons/side_mosinBramit.png"
+sound = "sten5Sound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 350, damage = 90, recoil = 10, bulk = 13, rof = 10, rofTime = 99, jam = 5, rgCapable = 0 }
+
+# ---- Semi-automatic rifles ----
+[[weapons]]
+tag = "svt38"
+based_on = "svt40"
+name = "SVT-38"
+description = "SVT-38, early Soviet semi-automatic rifle. Powerful at medium range, but suffers reliability issues and has an unwieldy centre of mass."
+# top_sprite = "weapons/top_svt38.png"
+side_sprite = "weapons/side_svt38.png"
+sound = "svt40Sound"
+mag_sprite = "genericMag"
+stats = { action = "semi", ammo = 10, maxAmmo = 10, range = 350, damage = 105, recoil = 15, bulk = 9, rof = 4, rofTime = 99, jam = 14, rgCapable = 0 }
+
+# The game already has an SVT-40, so this one is a reskin. German troops can carry it too.
+[[weapons]]
+reskin = "svt40"
+name = "SVT-40"
+description = "SVT-40, improved Soviet semi-automatic rifle. Lighter and more reliable, with improved range."
+# top_sprite = "weapons/top_svt40.png"
+side_sprite = "weapons/side_svt40.png"
+sound = "svt40Sound"
+mag_sprite = "genericMag"
+stats = { action = "semi", ammo = 10, maxAmmo = 10, range = 375, damage = 105, recoil = 13, bulk = 8.5, rof = 4, rofTime = 99, jam = 9, rgCapable = 0 }
+
+# ---- Automatic rifles ----
+[[weapons]]
+tag = "avs36"
+based_on = "svt40"
+name = "AVS-36"
+description = "AVS-36, early Soviet automatic rifle with 15-round magazine. Powerful shots and rapid bursts, but prone to stoppages and strong recoil."
+# top_sprite = "weapons/top_avs36.png"
+# side_sprite = "weapons/side_avs36.png"
+sound = "svt40Sound"
+mag_sprite = "g43Mag"
+stats = { action = "auto", ammo = 15, maxAmmo = 15, range = 350, damage = 105, recoil = 10, bulk = 10, rof = 4, rofTime = 0.075, jam = 20, rgCapable = 0 }
+
+[[weapons]]
+tag = "avt40"
+based_on = "svt40"
+name = "AVT-40"
+description = "AVT-40, full-auto SVT-40 with a rare 20-round magazine. Greater range and capacity than the AVS-36, with improved handling and reliability."
+# top_sprite = "weapons/top_avt40.png"
+# side_sprite = "weapons/side_avt40.png"
+sound = "svt40Sound"
+mag_sprite = "g43Mag"
+stats = { action = "auto", ammo = 20, maxAmmo = 20, range = 375, damage = 105, recoil = 10, bulk = 9, rof = 4, rofTime = 0.085, jam = 16, rgCapable = 0 }
+
+# ---- Submachine guns ----
+[[weapons]]
+tag = "ppd"
+based_on = "sten"
+name = "PPD"
+description = "PPD, early Soviet submachine gun with a 25-round box magazine. Frequent reloads due to high rate of fire and relatively small magazine capacity."
+# top_sprite = "weapons/top_ppd.png"
+# side_sprite = "weapons/side_ppd.png"
+sound = "stenSound"
+mag_sprite = "m1CarbineMag"
+stats = { action = "auto", class = "smg", ammo = 25, maxAmmo = 25, range = 250, damage = 70, recoil = 7, bulk = 8, rof = 15, rofTime = 0.075, jam = 9, rgCapable = 0 }
+
+[[weapons]]
+tag = "pps"
+based_on = "m3"
+name = "PPS"
+description = "PPS, mass-produced lightweight submachine gun with 35-round magazine. Easy to handle and reliable, with a moderate firing rate."
+# top_sprite = "weapons/top_pps.png"
+# side_sprite = "weapons/side_pps.png"
+sound = "ppshSound"
+mag_sprite = "mp40Mag"
+stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 250, damage = 70, recoil = 7, bulk = 6, rof = 10, rofTime = 0.10, jam = 5, rgCapable = 0 }
+
+[[weapons]]
+tag = "ppshBox"
+based_on = "ppsh41"
+name = "PPSh (box)"
+description = "PPSh with a 35-round box magazine. Rapid fire and good close-range damage, with less bulk and better reliability than the drum version."
+# top_sprite = "weapons/top_ppshBox.png"
+# side_sprite = "weapons/side_ppshBox.png"
+sound = "ppshSound"
+mag_sprite = "mp40Mag"
+stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 265, damage = 70, recoil = 6, bulk = 7.5, rof = 15, rofTime = 0.06, jam = 7, rgCapable = 0 }
+
+# The game already has the drum PPSh, so this one is a reskin (vanilla art, new stats).
+[[weapons]]
+reskin = "ppsh41"
+name = "PPSh (drum)"
+description = "PPSh with its iconic drum. Sustained close-range fire, at the cost of greater bulk and more frequent stoppages."
+sound = "ppshSound"
+mag_sprite = "ppshMag"
+stats = { action = "auto", class = "smg", ammo = 65, maxAmmo = 65, range = 265, damage = 70, recoil = 6, bulk = 9, rof = 20, rofTime = 0.06, jam = 12, rgCapable = 0 }
+
+[[weapons]]
+tag = "ppshObrez"
+based_on = "ppsh41"
+name = "PPSh Obrez"
+description = "PPSh Obrez, used by partisans in concealed carry. Sacrifices range and damage for extremely low bulk."
+# top_sprite = "weapons/top_ppshObrez.png"
+# side_sprite = "weapons/side_ppshObrez.png"
+sound = "ppshSound"
+mag_sprite = "mp40Mag"
+stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 150, damage = 50, recoil = 7, bulk = 5, rof = 15, rofTime = 0.0667, jam = 14, rgCapable = 0 }
+
+[[weapons]]
+tag = "ppdBramit"
+based_on = "stenMKVI"
+name = "PPD BraMit (box)"
+description = "PPD fitted with a Bramit suppressor and a 25-round box magazine. Fast, low-recoil fire at close range, but limited capacity and reduced damage."
+# top_sprite = "weapons/top_ppdBramit.png"
+# side_sprite = "weapons/side_ppdBramit.png"
+sound = "sten5Sound"
+mag_sprite = "m1CarbineMag"
+stats = { action = "auto", class = "smg", ammo = 25, maxAmmo = 25, range = 200, damage = 65, recoil = 5, bulk = 9, rof = 15, rofTime = 0.075, jam = 11, rgCapable = 0 }
+
+[[weapons]]
+tag = "ppdBramitDrum"
+based_on = "stenMKVI"
+name = "PPD BraMit (Drum)"
+description = "PPD fitted with a Bramit suppressor and a drum. Ample ammunition for silent close-range fire, but bulkier and more prone to stoppages due to drum feed."
+# top_sprite = "weapons/top_ppdBramitDrum.png"
+# side_sprite = "weapons/side_ppdBramitDrum.png"
+sound = "sten5Sound"
+mag_sprite = "ppshMag"
+stats = { action = "auto", class = "smg", ammo = 65, maxAmmo = 65, range = 200, damage = 65, recoil = 5, bulk = 10.5, rof = 15, rofTime = 0.075, jam = 14, rgCapable = 0 }
+
+# ---- Machine guns ----
+# The gunner's captured MG 42 is the vanilla "mg42", unchanged, so it needs no entry.
+[[weapons]]
+tag = "dp"
+based_on = "zb26"
+name = "DP"
+description = "DP, Degtyarev light machine gun fed by a distinctive 47-round pan magazine. Good range and magazine capacity, but prone to feed issues and recoil spring overheating."
+# top_sprite = "weapons/top_dp.png"
+# side_sprite = "weapons/side_dp.png"
+sound = "zb26Sound"
+mag_sprite = "ppshMag"
+stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, damage = 95, recoil = 10, bulk = 22, rof = 12, rofTime = 0.11, jam = 9, rgCapable = 0 }
+
+[[weapons]]
+tag = "dpm"
+based_on = "bren"
+name = "DPM"
+description = "DPM, Degtyarev light machine gun improved with a redesigned recoil spring arrangement for greater reliability and a pistol grip for better handling."
+# top_sprite = "weapons/top_dpm.png"
+# side_sprite = "weapons/side_dpm.png"
+sound = "brenSound"
+mag_sprite = "ppshMag"
+stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, damage = 95, recoil = 10, bulk = 20, rof = 10, rofTime = 0.109, jam = 6, rgCapable = 0 }
+
+[[weapons]]
+tag = "dt"
+based_on = "bren"
+name = "DT"
+description = "DT, compact Degtyarev tank machine gun adapted for infantry use. A 63-round pan provides extended fire, while the retractable stock and pistol grip improve handling."
+# top_sprite = "weapons/top_dt.png"
+# side_sprite = "weapons/side_dt.png"
+sound = "brenSound"
+mag_sprite = "ppshMag"
+stats = { action = "auto", class = "lmg", ammo = 63, maxAmmo = 63, range = 375, damage = 95, recoil = 11, bulk = 18, rof = 10, rofTime = 0.109, jam = 7, rgCapable = 0 }
+
+# ---- Sniper rifles ----
+[[weapons]]
+tag = "mosinSelected"
+based_on = "1917"
+name = "Selected Mosin"
+description = "A carefully selected and maintained Mosin M91/30 issued to a marksman. Excellent range, powerful shots, and dependable operation."
+# top_sprite = "weapons/top_mosinSelected.png"
+# side_sprite = "weapons/side_mosinSelected.png"
+sound = "springfieldSound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 500, damage = 105, recoil = 15, bulk = 12, rof = 10, rofTime = 99, jam = 1, rgCapable = 0 }
+
+[[weapons]]
+tag = "scopedMosinPU"
+based_on = "scopedK98"
+name = "Mosin M91/30 (PU)"
+description = "Scoped M91/30, fitted with a 3.5x PU telescopic sight. Excellent range and damage, but heavy and slow to handle."
+# top_sprite = "weapons/top_scopedMosinPU.png"
+# side_sprite = "weapons/side_scopedMosinPU.png"
+sound = "germanSniper"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 550, damage = 120, recoil = 15, bulk = 14, rof = 10, rofTime = 99, jam = 3, rgCapable = 0 }
+
+[[weapons]]
+tag = "scopedSvt40"
+based_on = "scopedG43"
+name = "SVT-40 (PU)"
+description = "Scoped SVT-40, fitted with a 3.5x PU telescopic sight. Allows rapid follow-up shots, trading some long-range precision for greater firepower."
+# top_sprite = "weapons/top_scopedSvt40.png"
+# side_sprite = "weapons/side_scopedSvt40.png"
+sound = "svt40Sound"
+mag_sprite = "genericMag"
+stats = { action = "semi", ammo = 10, maxAmmo = 10, range = 475, damage = 110, recoil = 13, bulk = 11, rof = 2, rofTime = 99, jam = 9, rgCapable = 0 }
+
+[[weapons]]
+tag = "scopedMosinPE"
+based_on = "scopedK98"
+name = "Mosin M91/30 (PE)"
+description = "Mosin M91/30, fitted with the more delicate 4x PE telescopic sight. Outstanding range and damage, but heavy to handle and limited to five rounds."
+# top_sprite = "weapons/top_scopedMosinPE.png"
+# side_sprite = "weapons/side_scopedMosinPE.png"
+sound = "germanSniper"
+mag_sprite = "genericMag"
+stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 600, damage = 120, recoil = 15, bulk = 15, rof = 10, rofTime = 99, jam = 2, rgCapable = 0 }
+
+# ---- Anti-tank rifles ----
+# The lend-lease Boys is the vanilla "boysRifle", unchanged, so it needs no entry.
+[[weapons]]
+tag = "ptrd"
+based_on = "boysRifle"
+name = "PTRD"
+description = "PTRD, single-shot 14.5mm anti-tank rifle. Excellent range and damage, but extremely cumbersome and requires reloading after every shot."
+# top_sprite = "weapons/top_ptrd.png"
+# side_sprite = "weapons/side_ptrd.png"
+sound = "atRifleSound"
+mag_sprite = "genericMag"
+stats = { action = "bolt", class = "atRifle", ammo = 1, maxAmmo = 1, range = 1000, damage = 250, recoil = 30, bulk = 35, rof = 1, rofTime = 99, jam = 3, rgCapable = 0 }
+
+[[weapons]]
+tag = "ptrs"
+based_on = "boysRifle"
+name = "PTRS"
+description = "PTRS, semi-automatic 14.5mm anti-tank rifle with a five-round magazine. Powerful shots and rapid follow-up fire, but even heavier than the PTRD."
+# top_sprite = "weapons/top_ptrs.png"
+# side_sprite = "weapons/side_ptrs.png"
+sound = "atRifleSound"
+mag_sprite = "genericMag"
+stats = { action = "semi", class = "atRifle", ammo = 5, maxAmmo = 5, range = 1000, damage = 250, recoil = 25, bulk = 40, rof = 1, rofTime = 99, jam = 8, rgCapable = 0 }
+
+# ---- Special and crate guns ----
+[[weapons]]
+tag = "tozB"
+based_on = "shotgun"
+name = "TOZ-B"
+description = "TOZ-B, double-barrel hunting shotgun, now primarily used by partisans. Close-range little marvel and capable of a quick second shot."
+# top_sprite = "weapons/top_tozB.png"
+# side_sprite = "weapons/side_tozB.png"
+sound = "shotGunSound"
+mag_sprite = "genericMag"
+stats = { action = "semi", ammo = 2, maxAmmo = 2, range = 300, damage = 200, recoil = 20, bulk = 5, rof = 1, rofTime = 99, jam = 2, rgCapable = 0 }
+
+[[weapons]]
+tag = "as44"
+based_on = "stg44"
+name = "AS-44"
+description = "AS-44, prototype 7.62x39mm Sudayev assault rifle with a 30-round magazine. Good range and steady automatic fire, but heavy and slow to handle."
+# top_sprite = "weapons/top_as44.png"
+# side_sprite = "weapons/side_as44.png"
+sound = "stg44Sound"
+mag_sprite = "stgMag"
+stats = { action = "auto", ammo = 30, maxAmmo = 30, range = 365, damage = 85, recoil = 6, bulk = 12, rof = 10, rofTime = 0.10, jam = 15, rgCapable = 0 }
+
+[[weapons]]
+tag = "rd44"
+based_on = "bren"
+name = "RD-44"
+description = "RD-44, prototype 7.62x39mm Degtyarev machine gun. Very good payload (100), with manageable recoil and reduced range and damage."
+# top_sprite = "weapons/top_rd44.png"
+# side_sprite = "weapons/side_rd44.png"
+sound = "brenSound"
+mag_sprite = "ammoBox"
+stats = { action = "auto", class = "lmg", ammo = 100, maxAmmo = 100, range = 350, damage = 85, recoil = 5, bulk = 19, rof = 15, rofTime = 0.0923, jam = 8, rgCapable = 0 }
+
+[[weapons]]
+tag = "rp46"
+based_on = "m1919"
+name = "Belt-fed DP"
+description = "Degtyarev DP with experimental belt-feed mechanism. Excellent payload (250-round belt), but cumbersome and prone to feed stoppages."
+# top_sprite = "weapons/top_rp46.png"
+# side_sprite = "weapons/side_rp46.png"
+sound = "brenSound"
+mag_sprite = "ammoBox"
+stats = { action = "auto", class = "lmg", ammo = 250, maxAmmo = 250, range = 375, damage = 95, recoil = 10, bulk = 26, rof = 20, rofTime = 0.10, jam = 10, rgCapable = 0 }
+
+# PLACEHOLDER: two more keys a new weapon can have (not decided for any weapon yet).
+#   loot_side = "allied"         # the weapon also drops as our side's loot
+#   pools = ["smg", "grunt"]     # the weapon joins these random pools (see POOLS below)
+
+
+# ============================== POOLS ==============================
+# The game draws loot and reinforcement weapons at random from these pools:
+# allied, allied_sniper, grunt, para, resistance, smg, axis, axis_crew.
+# REAL: the three partisan weapons from the stats sheet. The vanilla pool already has the MP 40.
+[pools.resistance]           # weapons of the partisans (the vanilla French unit)
+add = ["berdan", "tozB", "ppshObrez"]
+# remove = ["shotgun", "sten", "bren"]       # PLACEHOLDER: vanilla guns to take out of the pool
+
+# PLACEHOLDER: nothing decided for the other pools.
+# [pools.grunt]
+# add = ["mosin", "mosin38"]
+# remove = ["springfield"]
+
+
+# ============================== SPAWN SWAP ==============================
+# Hands out one weapon wherever the game would hand our side another.
+# REAL: recruits carry the Mosin M91/30 (vanilla recruits get the Springfield), and the
+#       stats sheet says the PPD replaces the Sten.
+# The check warns about "springfield": the game looks for that tag in 3 places
+# (rifle sounds and the Standardization condition). Expected.
+[spawn_swap]
+springfield = "mosin"
+sten = "ppd"
+# PLACEHOLDER: not decided. Until these are set, the game still hands out Garands, BARs and Thompsons.
+# m1 = "svt38"               # or "svt40", which is what the doc's Standardisation hands out
+# bar = "dp"
+# tommy = "ppsh41"
+# m1Carbine = "mosin38"
+
+
+# ============================== CLASSES ==============================
+# The game has 12 class slots. We can rename and rebalance them, not add new ones.
+# REAL: names, start weapons and unlocks (upgrade tiers 1 to 3) from the planning doc.
+# "PPSh (stick)" in the doc is read as the box-magazine PPSh, "ppshBox".
+# Where the doc gives two names ("Rifleman / Strelok") the Russian one is used. Change freely.
+# The long class texts on the class screen (specTxt_rifle ... in [text]) are still vanilla.
+# Other keys a class can have (PLACEHOLDER examples, see [classes.rifle]):
+#   description   the text after the name. Left out = the vanilla text stays.
+#   bonus         replaces the vanilla class bonus. Left out = the vanilla bonus stays.
+#   skills        new names and text for the 3 skills. What a skill does stays vanilla.
+#   icon          the class badge image.
+
+[classes.rifle]              # vanilla Heavy Infantry
+name = "Strelok"
+start_weapon = "svt38"
+unlocks = ["svt40", "avs36", "avt40"]
+# description = "Medium to long range with semi-automatic rifles."     # PLACEHOLDER
+# bonus = { speed = 0, skill = 5 }                                     # PLACEHOLDER
+# icon = "icons/rifle.png"                                             # PLACEHOLDER
+
+[classes.light]              # vanilla Light Infantry
+name = "Avtomatchik"
+start_weapon = "ppd"
+unlocks = ["pps", "ppshBox", "ppsh41"]
+# The third skill keeps its vanilla text until "Hail of fire" is coded.
+skills = [
+  "Smoke screen, Throws an RDG-1 smoke grenade to screen your troops",
+  "Grenade, Throws an RG-42 offensive grenade",
+  "Charge!! Cannot be pinned, 20% less damage received. Duration 10 sec",
+]
+
+[classes.gunner]             # vanilla Gunner
+name = "Pulemetchik"
+start_weapon = "dp"
+unlocks = ["dpm", "dt", "mg42"]
+
+[classes.medic]              # vanilla Medic
+name = "Sanitar"
+start_weapon = "mosin38"
+unlocks = ["mosin44", "svt38", "svt40"]
+
+[classes.comms]              # vanilla Signaller
+name = "Radist"
+start_weapon = "mosin38"
+unlocks = ["mosin44", "pps", "ppshBox"]
+
+[classes.officer]            # vanilla Officer
+name = "Officer"
+start_weapon = "mosin38"
+unlocks = ["mosin44", "pps", "ppshBox"]
+# The second skill keeps its vanilla text until "Focus Fire" is coded.
+skills = [
+  "Ura! All members of your squad will be unpinned and immune to suppression for 5 sec",
+  "Tactical Movement, all members of your squad have movement reduced by 50%, 50% faster reaction time and accuracy + 20%. Dur 1 min.",
+  "Tank support, Request a T-70 to support the squad for 3 min.",
+]
+
+[classes.engy]               # vanilla Engineer
+name = "Assault Sapper"
+start_weapon = "mosin38"
+unlocks = ["svt40", "pps", "ppshBox"]
+
+[classes.scout]              # vanilla Scout
+name = "Razvedchik"
+start_weapon = "mosin38"
+unlocks = ["mosin44", "pps", "ppshBox"]
+
+[classes.sniper]             # vanilla Sniper
+name = "Sniper"
+start_weapon = "mosinSelected"
+unlocks = ["scopedMosinPU", "scopedSvt40", "scopedMosinPE"]
+
+[classes.commando]           # vanilla Commando
+name = "Osnaz"
+start_weapon = "mosin44"
+unlocks = ["mosinBramit", "ppdBramit", "ppdBramitDrum"]
+# Only the third skill is renamed (vanilla Raider Jeep).
+skills = [
+  "Camouflage, the Osnaz hides and remains undetected by non-Sniper/Scout units for 30 sec or until he fires",
+  "Assassination, the next hand to hand strike has a 300% damage bonus.",
+  "DShK Jeep, a Ford GPA amphibian mounting a DShK comes looking for trouble. Duration 3 min.",
+]
+
+[classes.sapper]             # vanilla Sapper
+name = "AT Rifleman"
+start_weapon = "mosin44"
+unlocks = ["ptrd", "boysRifle", "ptrs"]
+
+[classes.intel]              # vanilla Intel
+name = "Diversant"
+start_weapon = "tozB"
+unlocks = ["ppshObrez", "mp40", "stg44"]
+
+
+# ============================== VOICES ==============================
+# Voice lines. Name the files like the game's: contact1.wav, pinned3.wav, alliedHurt1.wav ...
+# The originals are in the game's sounds/vo/allied/ folder.
+# PLACEHOLDER: the folder is empty, so all voices are still vanilla.
+[voices]
+folder = "voices"
+fill_missing = true                          # reuse our lines when we have fewer than the game
+map = { hurt = "alliedHurt" }                # lets us name files hurt1.wav instead of alliedHurt1.wav
+# dirs = { frenchies = "voices_partisans" }  # the partisans' own voice folder
+
+
+# ============================== SPRITES AND SOUNDS ==============================
+# Replaces any other game image or sound by its name, only while this faction is on.
+# PLACEHOLDER: examples only. The file must exist before a line is switched on.
+[sprites]
+# parachuteAllied = "misc/parachute.png"
+
+[sounds]
+# airStrike1 = "misc/il2.wav"
+
+
+# ============================== VEHICLES ==============================
+# Renames and reskins vehicles of our side. New vehicle types and vehicle stats are not possible here.
+# Allied vehicles: sherman, stuart, churchill, m10, m20, m5, greyHound, jeep, deuce, weasel,
+# weaselBoxed, halfTrack, ambulance, howitzer, landMattress, bofor, m2hb, clownCar.
+# REAL: the vanilla match for each vehicle below is named in the planning doc.
+# PLACEHOLDER: no art yet, so only the names change.
+
+[[vehicles]]
+reskin = "sherman"
+name = "T-34"
+# All the art keys a vehicle can have (PLACEHOLDER paths):
+# body = "vehicles/t34/body.png"
+# turret = "vehicles/t34/turret.png"
+# husk = "vehicles/t34/husk.png"             # the wreck
+# debris = "vehicles/t34/debris"             # debris1.png, debris2.png ...
+# driver = "vehicles/t34/driver.png"
+# gunner = "vehicles/t34/gunner.png"
+# icon = "vehicles/t34/icon.png"
+# parts = { SecondTurret1 = "vehicles/t34/second.png" }   # any other sprite of this vehicle
+# call_signs = ["Za Stalina", "Moskva"]      # names for this vehicle only
+
+[[vehicles]]
+reskin = "stuart"
+name = "T-70"
+
+[[vehicles]]
+reskin = "m10"
+name = "SU-85"
+
+[[vehicles]]
+reskin = "m20"
+name = "BA-64"
+
+[[vehicles]]
+reskin = "weasel"
+name = "T-20 Komsomolets"
+
+[[vehicles]]
+reskin = "m5"
+name = "ZiS-3"
+
+[[vehicles]]
+reskin = "bofor"
+name = "37mm 61-K"
+
+# PLACEHOLDER: guesses for the rest, not decided in the doc.
+# [[vehicles]]
+# reskin = "deuce"
+# name = "ZiS-5"
+#
+# [[vehicles]]
+# reskin = "landMattress"
+# name = "BM-13 Katyusha"
+
+
+# ============================== HOOKS ==============================
+# A Lua file for small things this file can't say. PLACEHOLDER: hooks.lua does nothing yet.
+[hooks]
+lua = "hooks.lua"
