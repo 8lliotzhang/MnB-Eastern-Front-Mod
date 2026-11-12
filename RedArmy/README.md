@@ -28,7 +28,7 @@ switched off; remove the `# ` to switch them on. Anything left out stays vanilla
 Real so far: faction header, 29 weapons with stats and text, 12 class names with start weapons and
 unlocks, battle condition renames, 7 vehicle names, partisan weapon pool.
 
-Still placeholder: name lists, all unit art, most weapon art (6 sprites exist), all sounds and
+Still placeholder: name lists, all unit art, most weapon art (9 sprites exist), all sounds and
 voices, vehicle art, class descriptions, bonuses and icons, hooks and patches.
 
 ## Checking your work
