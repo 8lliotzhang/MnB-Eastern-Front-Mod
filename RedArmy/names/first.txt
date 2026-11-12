@@ -1,0 +1,8 @@
+# PLACEHOLDER: a few sample first names. Replace with the real list.
+# One name per line. Not used until first_file and format = "full" are switched on in faction.toml.
+Ivan
+Pyotr
+Nikolai
+Vasily
+Mikhail
+Aleksei

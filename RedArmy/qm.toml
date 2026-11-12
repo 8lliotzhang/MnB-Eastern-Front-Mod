@@ -1,0 +1,18 @@
+# qm.toml: changes to game code. Only needed for things faction.toml can't do
+# (new skills, new battle conditions, new vehicles). Empty for now.
+# Guide: QuarterMaster modding wiki, Part 4.
+
+[manifest]
+version = "1.0.0"
+
+# PLACEHOLDER example patch: prints one line to the log when the game starts.
+# Remove the "# " to turn it on.
+# [[patches]]
+# [patches.pattern]
+# id = "eastern_front:hello"
+# target = "main.lua"
+# pattern = 'require "includes/directives"'
+# position = "after"
+# payload = '''
+# print("[Eastern Front] loaded")
+# '''
