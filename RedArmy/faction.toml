@@ -340,7 +340,7 @@ stats = { action = "bolt", ammo = 5, maxAmmo = 5, range = 550, damage = 120, rec
 
 [[weapons]]
 tag = "scopedSvt40"
-based_on = "scopedG43"
+based_on = "scopedGarand"       # not "scopedG43": the game has no art for it and would crash
 name = "SVT-40 (PU)"
 description = "Scoped SVT-40, fitted with a 3.5x PU telescopic sight. Allows rapid follow-up shots, trading some long-range precision for greater firepower."
 # top_sprite = "weapons/top_scopedSvt40.png"
@@ -550,7 +550,10 @@ skills = [
 [classes.sapper]             # vanilla Sapper
 name = "AT Rifleman"
 start_weapon = "mosin44"
-unlocks = ["ptrd", "boysRifle", "ptrs"]
+# Switched off: the game only lets a soldier fire an AT rifle as a picked-up extra (10 shots).
+# Given as a main weapon it never fires and turns into a K98. Needs the "primary AT" code
+# patch from the planning doc first. Until then the vanilla upgrades stay (Sten, M3, Thompson).
+# unlocks = ["ptrd", "boysRifle", "ptrs"]
 
 [classes.intel]              # vanilla Intel
 name = "Diversant"
