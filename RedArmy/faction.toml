@@ -96,7 +96,7 @@ folder = "units/french"
 # Two kinds:
 #   reskin = "<vanilla tag>"                   changes a weapon the game already has
 #   tag = "<new tag>" + based_on = "<vanilla>" adds a new weapon, starting as a copy of a vanilla one
-# REAL: tags, names, text and stats come from "Weapons Stats" and "Weapon Tags".
+# REAL: tags, names, text and stats come from the "Weapons Stats" sheet.
 # PLACEHOLDER: based_on picks, and every sound and mag_sprite (game ones reused for now).
 # Art: files are weapons/top_<tag>.png (in hand) and weapons/side_<tag>.png (in menus).
 #      Lines with "# top_sprite" / "# side_sprite" are waiting for art. Add the file, then remove the "# ".
@@ -119,7 +119,7 @@ tag = "mosin38"
 based_on = "springfield"
 name = "Mosin M38 Carbine"
 description = "Mosin M38 carbine, a shorter and lighter version of the M91/30."
-# top_sprite = "weapons/top_mosin38.png"
+top_sprite = "weapons/top_mosin38.png"
 side_sprite = "weapons/side_mosin38.png"
 sound = "springfieldSound"
 mag_sprite = "genericMag"
@@ -130,7 +130,7 @@ tag = "mosin44"
 based_on = "springfield"
 name = "Mosin M44 Carbine"
 description = "Mosin M44 carbine, slightly heavier than Mosin M38 due to the integrated folding bayonet."
-# top_sprite = "weapons/top_mosin44.png"
+top_sprite = "weapons/top_mosin44.png"
 side_sprite = "weapons/side_mosin44.png"
 sound = "springfieldSound"
 mag_sprite = "genericMag"
@@ -164,7 +164,7 @@ tag = "svt38"
 based_on = "svt40"
 name = "SVT-38"
 description = "SVT-38, early Soviet semi-automatic rifle. Powerful at medium range, but suffers reliability issues and has an unwieldy centre of mass."
-# top_sprite = "weapons/top_svt38.png"
+top_sprite = "weapons/top_svt38.png"
 side_sprite = "weapons/side_svt38.png"
 sound = "svt40Sound"
 mag_sprite = "genericMag"
@@ -175,7 +175,7 @@ stats = { action = "semi", ammo = 10, maxAmmo = 10, range = 350, damage = 105, r
 reskin = "svt40"
 name = "SVT-40"
 description = "SVT-40, improved Soviet semi-automatic rifle. Lighter and more reliable, with improved range."
-# top_sprite = "weapons/top_svt40.png"
+top_sprite = "weapons/top_svt40.png"
 side_sprite = "weapons/side_svt40.png"
 sound = "svt40Sound"
 mag_sprite = "genericMag"
@@ -287,7 +287,7 @@ tag = "dp"
 based_on = "zb26"
 name = "DP"
 description = "DP, Degtyarev light machine gun fed by a distinctive 47-round pan magazine. Good range and magazine capacity, but prone to feed issues and recoil spring overheating."
-# top_sprite = "weapons/top_dp.png"
+top_sprite = "weapons/top_dp.png"
 side_sprite = "weapons/side_dp.png"
 sound = "zb26Sound"
 mag_sprite = "ppshMag"
@@ -457,9 +457,8 @@ add = ["berdan", "tozB", "ppshObrez"]
 [spawn_swap]
 springfield = "mosin"
 sten = "ppd"
-
-# PLACEHOLDER: not decided. Until these are set, the game still hands out Garands, BARs and Thompsons.
-m1 = "svt40"               # or "svt40", which is what the doc's Standardisation hands out
+m1 = "svt40"               # Garands become SVT-40s, as in the doc's Standardisation list
+# PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
 # bar = "dp"
 # tommy = "ppsh41"
 # m1Carbine = "mosin38"
