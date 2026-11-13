@@ -468,6 +468,9 @@ tommy = "ppsh41"
 m1Carbine = "mosin38"
 m1CarbinePara = "mosin44"
 
+dpMag = "misc/dpMag.png"
+
+
 # PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
 # m1919 = "dt"
 # scopedGarand = "scopedSvt40"
