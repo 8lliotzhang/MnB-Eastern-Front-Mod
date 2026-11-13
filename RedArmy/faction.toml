@@ -198,7 +198,7 @@ tag = "avt40"
 based_on = "svt40"
 name = "AVT-40"
 description = "AVT-40, full-auto SVT-40 with a rare 20-round magazine. Greater range and capacity than the AVS-36, with improved handling and reliability."
-# top_sprite = "weapons/top_avt40.png"
+top_sprite = "weapons/top_avt40.png"
 side_sprite = "weapons/side_avt40.png"
 sound = "svt40Sound"
 mag_sprite = "g43Mag"
@@ -221,8 +221,8 @@ tag = "pps"
 based_on = "m3"
 name = "PPS"
 description = "PPS, mass-produced lightweight submachine gun with 35-round magazine. Easy to handle and reliable, with a moderate firing rate."
-# top_sprite = "weapons/top_pps.png"
-# side_sprite = "weapons/side_pps.png"
+top_sprite = "weapons/top_pps.png"
+side_sprite = "weapons/side_pps.png"
 sound = "ppshSound"
 mag_sprite = "mp40Mag"
 stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 250, damage = 70, recoil = 7, bulk = 6, rof = 10, rofTime = 0.10, jam = 5, rgCapable = 0 }
@@ -297,9 +297,9 @@ stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, 
 tag = "dpm"
 based_on = "bren"
 name = "DPM"
-description = "DPM, Degtyarev light machine gun improved with a redesigned recoil spring arrangement for greater reliability and a pistol grip for better handling."
-# top_sprite = "weapons/top_dpm.png"
-# side_sprite = "weapons/side_dpm.png"
+description = "DPM, improved Degtyarev light machine gun with a redesigned recoil spring arrangement for greater reliability and a pistol grip for better handling."
+top_sprite = "weapons/top_dpm.png"
+side_sprite = "weapons/side_dpm.png"
 sound = "brenSound"
 mag_sprite = "ppshMag"
 stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, damage = 95, recoil = 10, bulk = 20, rof = 10, rofTime = 0.109, jam = 6, rgCapable = 0 }
@@ -448,7 +448,7 @@ add = ["berdan", "tozB", "ppshObrez"]
 # remove = ["springfield"]
 
 
-# ============================== SPAWN SWAP ==============================
+ ============================== SPAWN SWAP ==============================
 # Hands out one weapon wherever the game would hand our side another.
 # REAL: recruits carry the Mosin M91/30 (vanilla recruits get the Springfield), and the
 #       stats sheet says the PPD replaces the Sten.
@@ -458,11 +458,22 @@ add = ["berdan", "tozB", "ppshObrez"]
 springfield = "mosin"
 sten = "ppd"
 m1 = "svt40"               # Garands become SVT-40s, as in the doc's Standardisation list
-# PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
-# bar = "dp"
-# tommy = "ppsh41"
-# m1Carbine = "mosin38"
+m1941 = "avs36"
+t20 = "avt40"
+m3 = "pps"
+bar = "dp"
+bren = "dpm"
+vicker = "mg42"
+tommy = "ppsh41"
+m1Carbine = "mosin38"
+m1CarbinePara = "mosin44"
 
+# PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
+# m1919 = "dt"
+# scopedGarand = "scopedSvt40"
+# scopedSpringfield = "scopedMosinPU"
+# scopedEnfield = "scopedMosinPE"
+# t22 = "as44"
 
 # ============================== CLASSES ==============================
 # The game has 12 class slots. We can rename and rebalance them, not add new ones.
