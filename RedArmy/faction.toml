@@ -290,7 +290,7 @@ description = "DP, Degtyarev light machine gun fed by a distinctive 47-round pan
 top_sprite = "weapons/top_dp.png"
 side_sprite = "weapons/side_dp.png"
 sound = "zb26Sound"
-mag_sprite = "ppshMag"
+mag_sprite = "dpMag"
 stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, damage = 95, recoil = 10, bulk = 22, rof = 12, rofTime = 0.11, jam = 9, rgCapable = 0 }
 
 [[weapons]]
@@ -301,7 +301,7 @@ description = "DPM, improved Degtyarev light machine gun with a redesigned recoi
 top_sprite = "weapons/top_dpm.png"
 side_sprite = "weapons/side_dpm.png"
 sound = "brenSound"
-mag_sprite = "ppshMag"
+mag_sprite = "dpMag"
 stats = { action = "auto", class = "lmg", ammo = 47, maxAmmo = 47, range = 375, damage = 95, recoil = 10, bulk = 20, rof = 10, rofTime = 0.109, jam = 6, rgCapable = 0 }
 
 [[weapons]]
