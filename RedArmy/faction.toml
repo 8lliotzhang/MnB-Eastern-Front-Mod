@@ -98,6 +98,10 @@ folder = "units/french"
 #   tag = "<new tag>" + based_on = "<vanilla>" adds a new weapon, starting as a copy of a vanilla one
 # REAL: tags, names, text and stats come from the "Weapons Stats" sheet.
 # PLACEHOLDER: based_on picks, and every sound and mag_sprite (game ones reused for now).
+# mag_sprite: one of the game's magazines (genericMag, m3Mag, g43Mag, mg15Mag, ammoBox, ammoPan,
+#      barMag, brenMag, tommyMag, m1CarbineMag, mp40Mag, stgMag, ppshMag), an image file, or a
+#      name from [sprites] (as dpMag is). Our own magazines need QuarterMaster 1.8.1
+#      or newer; an older one crashes the game on reload.
 # Art: files are weapons/top_<tag>.png (in hand) and weapons/side_<tag>.png (in menus).
 #      Lines with "# top_sprite" / "# side_sprite" are waiting for art. Add the file, then remove the "# ".
 # Own sounds: sound = "weapons/mosin" picks up mosin1.wav, mosin2.wav ... in that folder.
@@ -448,7 +452,7 @@ add = ["berdan", "tozB", "ppshObrez"]
 # remove = ["springfield"]
 
 
- ============================== SPAWN SWAP ==============================
+# ============================== SPAWN SWAP ==============================
 # Hands out one weapon wherever the game would hand our side another.
 # REAL: recruits carry the Mosin M91/30 (vanilla recruits get the Springfield), and the
 #       stats sheet says the PPD replaces the Sten.
@@ -467,11 +471,7 @@ vicker = "mg42"
 tommy = "ppsh41"
 m1Carbine = "mosin38"
 m1CarbinePara = "mosin44"
-
-dpMag = "misc/dpMag.png"
-
-
-# PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
+# PLACEHOLDER: not decided. Until these are set, the game still hands out these vanilla guns.
 # m1919 = "dt"
 # scopedGarand = "scopedSvt40"
 # scopedSpringfield = "scopedMosinPU"
@@ -590,6 +590,7 @@ map = { hurt = "alliedHurt" }                # lets us name files hurt1.wav inst
 # Replaces any other game image or sound by its name, only while this faction is on.
 # PLACEHOLDER: examples only. The file must exist before a line is switched on.
 [sprites]
+dpMag = "misc/dpMag.png"                     # the DP pan, used as mag_sprite = "dpMag"
 # parachuteAllied = "misc/parachute.png"
 
 [sounds]
