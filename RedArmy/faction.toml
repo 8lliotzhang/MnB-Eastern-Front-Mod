@@ -457,8 +457,9 @@ add = ["berdan", "tozB", "ppshObrez"]
 [spawn_swap]
 springfield = "mosin"
 sten = "ppd"
+
 # PLACEHOLDER: not decided. Until these are set, the game still hands out Garands, BARs and Thompsons.
-# m1 = "svt38"               # or "svt40", which is what the doc's Standardisation hands out
+m1 = "svt40"               # or "svt40", which is what the doc's Standardisation hands out
 # bar = "dp"
 # tommy = "ppsh41"
 # m1Carbine = "mosin38"
