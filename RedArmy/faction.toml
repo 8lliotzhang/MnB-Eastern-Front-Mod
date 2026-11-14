@@ -538,7 +538,7 @@ skills = [
 [classes.engy]               # vanilla Engineer
 name = "Assault Sapper"
 start_weapon = "mosin38"
-unlocks = ["svt40", "pps", "ppshBox"]
+unlocks = ["mosin44", "pps", "ppshBox"]
 
 [classes.scout]              # vanilla Scout
 name = "Razvedchik"
