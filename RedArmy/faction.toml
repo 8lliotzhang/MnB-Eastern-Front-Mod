@@ -98,10 +98,6 @@ folder = "units/french"
 #   tag = "<new tag>" + based_on = "<vanilla>" adds a new weapon, starting as a copy of a vanilla one
 # REAL: tags, names, text and stats come from the "Weapons Stats" sheet.
 # PLACEHOLDER: based_on picks, and every sound and mag_sprite (game ones reused for now).
-# mag_sprite: one of the game's magazines (genericMag, m3Mag, g43Mag, mg15Mag, ammoBox, ammoPan,
-#      barMag, brenMag, tommyMag, m1CarbineMag, mp40Mag, stgMag, ppshMag), an image file, or a
-#      name from [sprites] (as dpMag is). Our own magazines need QuarterMaster 1.8.1
-#      or newer; an older one crashes the game on reload.
 # Art: files are weapons/top_<tag>.png (in hand) and weapons/side_<tag>.png (in menus).
 #      Lines with "# top_sprite" / "# side_sprite" are waiting for art. Add the file, then remove the "# ".
 # Own sounds: sound = "weapons/mosin" picks up mosin1.wav, mosin2.wav ... in that folder.
@@ -191,7 +187,7 @@ tag = "avs36"
 based_on = "svt40"
 name = "AVS-36"
 description = "AVS-36, early Soviet automatic rifle with 15-round magazine. Powerful shots and rapid bursts, but prone to stoppages and strong recoil."
-# top_sprite = "weapons/top_avs36.png"
+top_sprite = "weapons/top_avs36.png"
 side_sprite = "weapons/side_avs36.png"
 sound = "svt40Sound"
 mag_sprite = "g43Mag"
@@ -214,8 +210,8 @@ tag = "ppd"
 based_on = "sten"
 name = "PPD"
 description = "PPD, early Soviet submachine gun with a 25-round box magazine. Frequent reloads due to high rate of fire and relatively small magazine capacity."
-# top_sprite = "weapons/top_ppd.png"
-# side_sprite = "weapons/side_ppd.png"
+top_sprite = "weapons/top_ppd.png"
+side_sprite = "weapons/side_ppd.png"
 sound = "stenSound"
 mag_sprite = "m1CarbineMag"
 stats = { action = "auto", class = "smg", ammo = 25, maxAmmo = 25, range = 250, damage = 70, recoil = 7, bulk = 8, rof = 15, rofTime = 0.075, jam = 9, rgCapable = 0 }
@@ -227,8 +223,8 @@ name = "PPS"
 description = "PPS, mass-produced lightweight submachine gun with 35-round magazine. Easy to handle and reliable, with a moderate firing rate."
 top_sprite = "weapons/top_pps.png"
 side_sprite = "weapons/side_pps.png"
-sound = "ppshSound"
-mag_sprite = "mp40Mag"
+sound = "m3Sound"
+mag_sprite = "ppsMag"
 stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 250, damage = 70, recoil = 7, bulk = 6, rof = 10, rofTime = 0.10, jam = 5, rgCapable = 0 }
 
 [[weapons]]
@@ -236,10 +232,10 @@ tag = "ppshBox"
 based_on = "ppsh41"
 name = "PPSh (box)"
 description = "PPSh with a 35-round box magazine. Rapid fire and good close-range damage, with less bulk and better reliability than the drum version."
-# top_sprite = "weapons/top_ppshBox.png"
-# side_sprite = "weapons/side_ppshBox.png"
+top_sprite = "weapons/top_ppshBox.png"
+side_sprite = "weapons/side_ppshBox.png"
 sound = "ppshSound"
-mag_sprite = "mp40Mag"
+mag_sprite = "ppsMag"
 stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 265, damage = 70, recoil = 6, bulk = 7.5, rof = 15, rofTime = 0.06, jam = 7, rgCapable = 0 }
 
 # The game already has the drum PPSh, so this one is a reskin (vanilla art, new stats).
@@ -256,10 +252,10 @@ tag = "ppshObrez"
 based_on = "ppsh41"
 name = "PPSh Obrez"
 description = "PPSh Obrez, used by partisans in concealed carry. Sacrifices range and damage for extremely low bulk."
-# top_sprite = "weapons/top_ppshObrez.png"
-# side_sprite = "weapons/side_ppshObrez.png"
+top_sprite = "weapons/top_ppshObrez.png"
+side_sprite = "weapons/side_ppshObrez.png"
 sound = "ppshSound"
-mag_sprite = "mp40Mag"
+mag_sprite = "ppsMag"
 stats = { action = "auto", class = "smg", ammo = 35, maxAmmo = 35, range = 150, damage = 50, recoil = 7, bulk = 5, rof = 15, rofTime = 0.0667, jam = 14, rgCapable = 0 }
 
 [[weapons]]
@@ -313,10 +309,10 @@ tag = "dt"
 based_on = "bren"
 name = "DT"
 description = "DT, compact Degtyarev tank machine gun adapted for infantry use. A 63-round pan provides extended fire, while the retractable stock and pistol grip improve handling."
-# top_sprite = "weapons/top_dt.png"
-# side_sprite = "weapons/side_dt.png"
+top_sprite = "weapons/top_dt.png"
+side_sprite = "weapons/side_dt.png"
 sound = "brenSound"
-mag_sprite = "ppshMag"
+mag_sprite = "dtMag"
 stats = { action = "auto", class = "lmg", ammo = 63, maxAmmo = 63, range = 375, damage = 95, recoil = 11, bulk = 18, rof = 10, rofTime = 0.109, jam = 7, rgCapable = 0 }
 
 # ---- Sniper rifles ----
@@ -451,7 +447,6 @@ add = ["berdan", "tozB", "ppshObrez"]
 # add = ["mosin", "mosin38"]
 # remove = ["springfield"]
 
-
 # ============================== SPAWN SWAP ==============================
 # Hands out one weapon wherever the game would hand our side another.
 # REAL: recruits carry the Mosin M91/30 (vanilla recruits get the Springfield), and the
@@ -471,7 +466,12 @@ vicker = "mg42"
 tommy = "ppsh41"
 m1Carbine = "mosin38"
 m1CarbinePara = "mosin44"
-# PLACEHOLDER: not decided. Until these are set, the game still hands out these vanilla guns.
+[sprites]
+dpMag = "misc/dpMag.png"
+ppsMag = "misc/ppsMag.png"
+dtMag = "misc/dtMag.png"
+
+# PLACEHOLDER: not decided. Until these are set, the game still hands out BARs and Thompsons.
 # m1919 = "dt"
 # scopedGarand = "scopedSvt40"
 # scopedSpringfield = "scopedMosinPU"
@@ -589,8 +589,7 @@ map = { hurt = "alliedHurt" }                # lets us name files hurt1.wav inst
 # ============================== SPRITES AND SOUNDS ==============================
 # Replaces any other game image or sound by its name, only while this faction is on.
 # PLACEHOLDER: examples only. The file must exist before a line is switched on.
-[sprites]
-dpMag = "misc/dpMag.png"                     # the DP pan, used as mag_sprite = "dpMag"
+
 # parachuteAllied = "misc/parachute.png"
 
 [sounds]
